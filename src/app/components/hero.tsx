@@ -223,14 +223,14 @@ const Hero = () => {
             </Button>
           </motion.div>
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-wrap items-center justify-center gap-4 pt-2 lg:pt-12"
           >
             <ClientsStrip variant="grid" />
-          </motion.div>
+          </motion.div> */}
         </motion.div>
 
         <motion.div

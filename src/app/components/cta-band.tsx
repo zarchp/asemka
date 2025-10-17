@@ -56,7 +56,7 @@ const CTABand = () => {
             </Button>
           </div>
 
-          <div className="flex justify-around w-full mt-8 text-white">
+          {/* <div className="flex justify-around w-full mt-8 text-white">
             <div>
               <div className="text-4xl font-bold">24h</div>
               <div className="text-sm">Response Time</div>
@@ -73,7 +73,7 @@ const CTABand = () => {
               <div className="text-4xl font-bold">100%</div>
               <div className="text-sm">Client Satisfaction</div>
             </div>
-          </div>
+          </div> */}
         </div>
       </motion.div>
     </section>
