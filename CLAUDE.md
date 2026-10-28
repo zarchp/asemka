@@ -31,9 +31,9 @@ Shared hosting with no Node runtime. Upload the **contents** of `dist/` (includi
 
 - Direction: **Colour chapters**, dealt by `design-taste-frontend` (sheet in `.taste-skill/direction.json`; reprint with `node .agents/skills/design-taste-frontend/scripts/draw.mjs --show`). Redraws: work section is `work-stacked-folders-tabs` (only 3 projects); services section is `features-capabilities-at-poster-scale` (one interactive feature per page).
 - Idea: the visitor's first WhatsApp message becomes the hero. The composer builds the message, and every `[data-wa-link]` is updated to match. Hero headline "Your business deserves better software." (the full stop in orange; no location claims). The top right of the hero is intentionally empty (the owner rejected a bag drawing, software slices and a geometric composition). Bottom left lists three quiet trust points (`hero.promises`). The hero copy column and the stage share one grid cell (`grid-area: 1 / 1`), with the stage at `z-index: 2`: never make the stage absolute again, or the copy's full-width box covers the chips and short screens clip the send button. Test composer clicks with real hit-testing (`document.elementFromPoint`), not `el.click()`.
-- Header (`Nav.astro`) is sticky and solid, height `--nav-h`; anything else sticky must offset by it. Project screens are small working demos (approve, pick, filter and add to cart) with their own scripts; on phones they scroll sideways at true size. FAQ items open independently (no shared `name`). Contact leads with the WhatsApp number and an Open WhatsApp button; email, city and hours follow as a `dl`. Work bands alternate sides (warehouse mirrored) at natural height; the hero links to them with a small folder-pile pointer.
+- Header (`Nav.astro`) is sticky and solid, height `--nav-h`; anything else sticky must offset by it. Project screens are small working demos (approve, pick, filter and add to cart) with their own scripts; on phones they scroll sideways at true size. FAQ items open independently (no shared `name`). Contact leads with the WhatsApp number and an Open WhatsApp button; email, city and hours follow as a `dl`. Work bands alternate sides (warehouse mirrored) at natural height.
 - Palette: paper `#F4F4F2`, ink `#161616`, Asemka orange `#FF3D00`, ember `#D43100`, peach `#FFE9E0`, logo grey `#404040`, WhatsApp green `#075E54`. The owner dislikes black text on orange: bright orange (`field-orange`) carries no running text; sections with text on orange use `field-ember` with white text (4.9:1). Exception: the procurement band is bright orange at the owner's request, so all its text is white at 19px bold or larger (the large-text contrast level). One flat field per section; neighbouring fields must differ in lightness.
-- Type: Albert Sans 400/500/600 (self-hosted via @fontsource). Sizes resolve to the five tokens: `--step-small`, `--step-body`, `--step-lead`, `--step-display`, `--step-poster`.
+- Type: Albert Sans 400/500/600, plus 700 for white text on the bright orange band (self-hosted via @fontsource). Sizes resolve to the five tokens: `--step-small`, `--step-body`, `--step-lead`, `--step-display`, `--step-poster`.
 - Shapes: square buttons, and the folder-tab `clip-path` (from the logo's back sheet) is the one motif. No gradients, shadows, hairlines, eyebrows, or monospace outside `data-ui` fragments.
 
 ## Checks before shipping a change
@@ -60,7 +60,7 @@ Project skills in `.claude/skills/` load automatically:
 
 ## Placeholders to replace before launch
 
-- Testimonial (Rina Hartono, PT Sinar Logistik) in both i18n files is invented.
+- The three testimonials in both i18n files are invented.
 - FAQ pricing answer: pending the owner's decision on showing a starting price.
 - Sample data inside the project screens (PR numbers, branches, products, merchants).
 - `public/og.png` is a screenshot of the hero; regenerate if the hero changes.
