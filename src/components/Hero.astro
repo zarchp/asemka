@@ -22,11 +22,14 @@ const groups = [
   { key: 'stage', legend: c.groups.stage, items: c.stage, checked: defaults.stage.id },
   { key: 'when', legend: c.groups.when, items: c.when, checked: defaults.when.id },
 ] as const;
+// the full stop is set apart so it can carry the brand orange
+const [line1, line2] = dict.hero.title;
+const line2Body = line2.endsWith('.') ? line2.slice(0, -1) : line2;
 ---
 
 <section class="hero field-paper" aria-labelledby="hero-title">
   <div class="hero-copy frame" data-stagger>
-    <h1 id="hero-title" data-reveal><span>{dict.hero.title[0]}</span> <span>{dict.hero.title[1]}</span></h1>
+    <h1 id="hero-title" data-reveal><span>{line1}</span> <span>{line2Body}<span class="dot">.</span></span></h1>
     <p class="lead" data-reveal>{dict.hero.lead}</p>
     <a class="button cta" href={waLink(defaultMessage)} data-wa-link data-reveal rel="noopener" target="_blank">
       {dict.hero.cta}
@@ -36,22 +39,13 @@ const groups = [
       {
         dict.hero.promises.map((p) => (
           <li>
-            <svg viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M229.66 77.66l-128 128a8 8 0 0 1-11.32 0l-56-56a8 8 0 0 1 11.32-11.32L96 188.69 218.34 66.34a8 8 0 0 1 11.32 11.32Z" /></svg>
+            <svg viewBox="0 0 16 12" aria-hidden="true"><path d="M1.5 6.5l4 4L14.5 1.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" /></svg>
             {p}
           </li>
         ))
       }
     </ul>
   </div>
-
-  <svg class="bag" viewBox="0 80 380 290" aria-hidden="true">
-    <g class="bag-float">
-      <path class="bag-sheet" d="M14 155 52 142 102 325 87 348Z" />
-      <path class="bag-front" d="M85 97h282v198l-245 65Z" />
-      <path class="bag-handle-shade" d="M184 134l7 58q5 52 59 52t59-52l-7-58" />
-      <path class="bag-handle" d="M180 128l7 58q5 52 59 52t59-52l-7-58" />
-    </g>
-  </svg>
 
   <div class="stage-wrap" data-shutter>
     <div class="stage field-orange">
@@ -160,8 +154,18 @@ const groups = [
   }
 
   h1 {
-    max-width: 14ch;
     font-size: clamp(2.25rem, 0.6rem + 5vw, 4.75rem);
+    letter-spacing: -0.04em;
+    line-height: 0.98;
+  }
+
+  :global(html[lang='id']) h1 {
+    font-size: clamp(2rem, 0.5rem + 4.4vw, 4.25rem);
+  }
+
+  h1 .dot {
+    display: inline;
+    color: var(--orange);
   }
 
   h1 span {
@@ -169,103 +173,32 @@ const groups = [
   }
 
   .lead {
-    max-width: 34ch;
+    max-width: 36ch;
     margin-top: 32px;
     font-size: var(--step-body);
     line-height: 1.5;
   }
 
+  /* trust points: quiet, one line each, an orange tick as the only marker */
   .promises {
     display: grid;
-    gap: 12px;
-    max-width: 32ch;
-    margin-top: 48px;
+    gap: 10px;
+    margin-top: 40px;
   }
 
   .promises li {
     display: flex;
     align-items: center;
     gap: 12px;
+    font-size: 1rem;
     font-weight: 500;
   }
 
   .promises svg {
     flex: none;
-    width: 28px;
-    height: 28px;
-    padding: 6px;
-    border-radius: 50%;
-    background: var(--ink);
-    color: #fff;
-  }
-
-  /* the Asemka bag, drawn from the logo, top right above the stage */
-  .bag {
-    position: absolute;
-    top: clamp(16px, 3vh, 40px);
-    right: var(--m);
-    width: min(400px, 28vw);
-    height: auto;
-    overflow: visible;
-  }
-
-  .bag-front,
-  .bag-sheet {
-    fill: var(--orange);
-  }
-
-  .bag-handle,
-  .bag-handle-shade {
-    fill: none;
-    stroke-width: 20;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .bag-handle {
-    stroke: #fff;
-  }
-
-  .bag-handle-shade {
-    stroke: #c42e00;
-  }
-
-  .bag-float {
-    transform-box: fill-box;
-    transform-origin: 50% 50%;
-  }
-
-  .bag-sheet {
-    transform-box: fill-box;
-    transform-origin: 50% 100%;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .bag-float {
-      animation: bag-float 7s var(--ease-in-out) infinite alternate;
-    }
-
-    .bag-sheet {
-      animation: bag-sway 4.2s var(--ease-in-out) infinite alternate;
-    }
-
-    @keyframes bag-float {
-      from {
-        transform: translateY(-6px) rotate(-1deg);
-      }
-      to {
-        transform: translateY(8px) rotate(1.5deg);
-      }
-    }
-
-    @keyframes bag-sway {
-      from {
-        transform: rotate(-7deg);
-      }
-      to {
-        transform: rotate(5deg);
-      }
-    }
+    width: 14px;
+    height: 11px;
+    color: var(--orange-strong);
   }
 
   .cta {
@@ -287,8 +220,8 @@ const groups = [
   .stage {
     --tab: calc((100vw - 2 * var(--m) + var(--gutter)) / 12 * 2);
     height: 100%;
-    padding: 96px 0 0 56px;
-    /* the corner is cut as a folder tab, the shape of the sheet behind the Asemka bag */
+    padding: 72px 0 0 56px;
+    /* the corner is cut as a folder tab, the shape of the sheet behind the logo's bag */
     clip-path: polygon(0 0, var(--tab) 0, calc(var(--tab) + 40px) 40px, 100% 40px, 100% 100%, 0 100%);
   }
 
@@ -331,8 +264,8 @@ const groups = [
   .choices {
     grid-area: choices;
     display: grid;
-    gap: 20px;
-    padding: 24px;
+    gap: 16px;
+    padding: 20px 24px;
   }
 
   fieldset {
@@ -369,7 +302,7 @@ const groups = [
 
   .chip span {
     display: block;
-    padding: 8px 14px;
+    padding: 7px 13px;
     border-radius: 999px;
     background: #efefec;
     font-size: 0.9375rem;
@@ -555,12 +488,6 @@ const groups = [
 
   /* phone and tablet: the stage follows the copy at full width */
   @media (max-width: 1023px) {
-    .bag {
-      display: none;
-    }
-  }
-
-  @media (max-width: 1023px) {
     .hero {
       min-height: 0;
     }
@@ -572,6 +499,7 @@ const groups = [
     .promises {
       margin-top: 32px;
     }
+
 
     h1 {
       font-size: clamp(2.125rem, 8.6vw, 4rem);

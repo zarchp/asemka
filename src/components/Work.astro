@@ -39,6 +39,7 @@ const fields = { procurement: 'field-orange', warehouse: 'field-grey', wholesale
               <p>{p.body}</p>
               <a class="link more" href={waLink(p.message)} rel="noopener" target="_blank">
                 {p.link}
+                <svg viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z" /></svg>
               </a>
             </div>
           </div>
@@ -62,6 +63,8 @@ const fields = { procurement: 'field-orange', warehouse: 'field-grey', wholesale
   .band {
     --tab-h: 56px;
     --strip: 48px;
+    --slot: min(420px, (100vw - 2 * var(--m) - 12px) / 3);
+    --tab-x: calc(var(--n) * (var(--slot) + 6px));
     position: sticky;
     top: calc(var(--nav-h) + var(--n) * (var(--tab-h) + var(--strip)));
     background: transparent;
@@ -76,13 +79,12 @@ const fields = { procurement: 'field-orange', warehouse: 'field-grey', wholesale
 
   /* every tab has its own slot, a third of the frame, so the pile never covers a name */
   .tab {
-    --slot: min(420px, (100vw - 2 * var(--m) - 12px) / 3);
     display: flex;
     align-items: center;
     width: var(--slot);
     height: var(--tab-h);
     padding: 0 48px 0 24px;
-    margin-left: calc(var(--n) * (var(--slot) + 6px));
+    margin-left: var(--tab-x);
     background: var(--ground);
     font-size: var(--step-lead);
     font-weight: 600;
@@ -100,33 +102,44 @@ const fields = { procurement: 'field-orange', warehouse: 'field-grey', wholesale
   }
 
   .body {
-    min-height: calc(80svh);
-    padding-bottom: 96px;
+    padding-bottom: clamp(64px, 7vw, 112px);
     background: var(--ground);
   }
 
+  /* the category sits under its own tab, so name and kind read as one label */
   .category {
     height: var(--strip);
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    padding-left: calc(var(--tab-x) + 24px);
     font-size: var(--step-small);
-    font-weight: 500;
+    font-weight: 600;
   }
 
   .content {
-    align-items: start;
-    padding-top: 32px;
+    align-items: stretch;
+    padding-top: 24px;
   }
 
+  /* screens alternate sides; all share one size, one crop and one corner */
   .demo {
-    grid-column: 1 / 8;
+    grid-column: 1 / 9;
+    grid-row: 1;
+  }
+
+  .band-warehouse .demo {
+    grid-column: 5 / 13;
+  }
+
+  .band-wholesale {
+    --ground: var(--paper-step);
   }
 
   .shot {
     aspect-ratio: 16 / 10;
     overflow: hidden;
     border-radius: 10px;
+    background: #fff;
   }
 
   figcaption {
@@ -140,12 +153,22 @@ const fields = { procurement: 'field-orange', warehouse: 'field-grey', wholesale
     min-width: 760px;
   }
 
+  /* the text runs the height of its screen: description at the top, the action level with the screen's foot */
   .text {
     grid-column: 9 / 13;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0 36px 24px;
+  }
+
+  .band-warehouse .text {
+    grid-column: 1 / 5;
+    padding: 8px 24px 36px 0;
   }
 
   .text p {
-    max-width: 44ch;
+    max-width: 40ch;
   }
 
   /* bright orange band: white text is set bold at 19px or more, the large-text level where 3.6:1 is enough */
@@ -161,9 +184,24 @@ const fields = { procurement: 'field-orange', warehouse: 'field-grey', wholesale
     font-weight: 700;
   }
 
+  .more svg {
+    width: 18px;
+    height: 18px;
+    transition: transform var(--t-ui) var(--ease-out);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .more:hover svg {
+      transform: translateX(4px);
+    }
+  }
+
   .more {
-    display: inline-block;
-    margin-top: 24px;
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
     padding: 8px 0;
     font-weight: 600;
   }
@@ -187,14 +225,13 @@ const fields = { procurement: 'field-orange', warehouse: 'field-grey', wholesale
     }
 
     .body {
-      min-height: 0;
       padding-bottom: 64px;
     }
 
     .category {
-      justify-content: flex-start;
       height: auto;
       padding-top: 16px;
+      padding-left: 0;
     }
 
     .content {
@@ -203,8 +240,20 @@ const fields = { procurement: 'field-orange', warehouse: 'field-grey', wholesale
     }
 
     .demo,
-    .text {
+    .text,
+    .band-warehouse .demo,
+    .band-warehouse .text {
       grid-column: 1 / -1;
+      grid-row: auto;
+    }
+
+    .text,
+    .band-warehouse .text {
+      padding: 0;
+    }
+
+    .more {
+      margin-top: 24px;
     }
 
     /* the demo keeps its true size and scrolls sideways on a phone */

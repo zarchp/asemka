@@ -10,10 +10,10 @@ const en: Dict = {
   },
   nav: { work: 'Work', services: 'Services', process: 'Process', faq: 'FAQ', cta: 'Chat on WhatsApp', skip: 'Skip to content', label: 'Main', switchLabel: 'Bahasa Indonesia', switchHref: '/id/', switchLang: 'id' },
   hero: {
-    title: ['Business software,', 'built in Indonesia'],
-    lead: 'Procurement, warehouse and online shop systems for Indonesian companies and startups.',
+    title: ['Your business deserves', 'better software.'],
+    lead: 'We build custom systems that simplify complex work, from procurement and inventory to wholesale commerce. Designed around your business, built to work.',
     cta: 'Send on WhatsApp',
-    promises: ['A reply within one working day', 'A clickable prototype within two weeks', 'Built in Bahasa Indonesia and English'],
+    promises: ['A reply within one working day', 'A clickable prototype within two weeks', 'Software tailored to your business'],
     composer: {
       label: 'Write your first message',
       contactName: 'Asemka',
@@ -132,6 +132,7 @@ const en: Dict = {
   },
   contact: {
     heading: 'Talk to Asemka',
+    lead: 'Send what you need on WhatsApp. We reply within one working day.',
     rows: [
       { label: 'WhatsApp', value: `WhatsApp ${WA_LOCAL}`, href: waLink('Hi Asemka. Can we talk about a project?') },
       { label: 'Email', value: EMAIL, href: `mailto:${EMAIL}?subject=${encodeURIComponent('Project enquiry')}` },

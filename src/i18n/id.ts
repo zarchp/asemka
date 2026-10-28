@@ -10,10 +10,10 @@ const id: Dict = {
   },
   nav: { work: 'Proyek', services: 'Layanan', process: 'Proses', faq: 'FAQ', cta: 'Chat WhatsApp', skip: 'Langsung ke isi', label: 'Utama', switchLabel: 'English', switchHref: '/', switchLang: 'en' },
   hero: {
-    title: ['Software bisnis,', 'dibuat di Indonesia'],
-    lead: 'Sistem pengadaan, gudang, dan toko online untuk perusahaan dan startup Indonesia.',
+    title: ['Bisnis Anda layak', 'software yang lebih baik.'],
+    lead: 'Kami membangun sistem custom yang menyederhanakan pekerjaan rumit, dari pengadaan dan inventori sampai perdagangan grosir. Dirancang sesuai bisnis Anda, dibuat untuk bekerja.',
     cta: 'Kirim lewat WhatsApp',
-    promises: ['Balasan dalam satu hari kerja', 'Prototipe yang bisa diklik dalam dua minggu', 'Tersedia dalam Bahasa Indonesia dan Inggris'],
+    promises: ['Balasan dalam satu hari kerja', 'Prototipe yang bisa diklik dalam dua minggu', 'Software yang disesuaikan dengan bisnis Anda'],
     composer: {
       label: 'Tulis pesan pertama Anda',
       contactName: 'Asemka',
@@ -132,6 +132,7 @@ const id: Dict = {
   },
   contact: {
     heading: 'Ngobrol dengan Asemka',
+    lead: 'Kirim kebutuhan Anda lewat WhatsApp. Kami membalas dalam satu hari kerja.',
     rows: [
       { label: 'WhatsApp', value: `WhatsApp ${WA_LOCAL}`, href: waLink('Halo Asemka. Bisa kita ngobrol soal proyek?') },
       { label: 'Email', value: EMAIL, href: `mailto:${EMAIL}?subject=${encodeURIComponent('Pertanyaan proyek')}` },

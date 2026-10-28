@@ -99,8 +99,8 @@ const id = dict.lang === 'id';
   .tile {
     grid-row: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end;
+    justify-content: flex-start;
     overflow: hidden;
     padding: 24px;
   }
@@ -214,12 +214,14 @@ const id = dict.lang === 'id';
     line-height: 1.4;
   }
 
+  /* every stage is one white panel at the same radius and padding; only the contents grow */
   .msg {
     display: grid;
     gap: 8px;
     max-width: 300px;
-    min-height: 200px;
-    align-content: center;
+    padding: 16px;
+    border-radius: 12px;
+    background: #efeae2;
   }
 
   .b {
@@ -240,7 +242,7 @@ const id = dict.lang === 'id';
   }
 
   .proto {
-    max-width: 320px;
+    max-width: 340px;
     padding: 20px;
     border-radius: 12px;
     background: #fff;
@@ -283,7 +285,7 @@ const id = dict.lang === 'id';
   }
 
   .live {
-    max-width: 440px;
+    max-width: 400px;
     padding: 20px;
     border-radius: 12px;
     background: #fff;
@@ -365,7 +367,7 @@ const id = dict.lang === 'id';
       font-size: clamp(1.875rem, 8vw, 3rem);
     }
 
-    .tile { height: auto; }
+    .tile { height: auto; justify-content: center; align-items: center; }
     .t1 { order: 1; min-height: 46vw; }
     .c1 { order: 2; }
     .t2 { order: 3; min-height: 62vw; margin-top: 28px; }

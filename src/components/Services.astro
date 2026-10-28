@@ -59,18 +59,23 @@ const { dict } = Astro.props;
     grid-column: 6 / 13;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 56px var(--gutter);
+    gap: 48px var(--gutter);
   }
 
+  /* mark and title on one line; the description hangs from the title's left edge */
   li {
-    padding-right: 24px;
+    display: grid;
+    grid-template-columns: 22px minmax(0, 1fr);
+    column-gap: 14px;
+    align-content: start;
   }
 
   .tab {
     width: 22px;
     height: 14px;
-    margin-bottom: 16px;
+    margin-top: 0.42em;
     color: var(--orange);
+    font-size: var(--step-lead);
   }
 
   h3 {
@@ -80,8 +85,9 @@ const { dict } = Astro.props;
   }
 
   li p {
+    grid-column: 2;
     max-width: 34ch;
-    margin-top: 8px;
+    margin-top: 10px;
     color: var(--muted);
   }
 

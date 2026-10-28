@@ -51,6 +51,7 @@ export interface Dict {
   faq: { heading: string; items: { q: string; a: string }[] };
   contact: {
     heading: string;
+    lead: string;
     rows: { label: string; value: string; href?: string }[];
     greeting: string;
     greetingAction: string;
