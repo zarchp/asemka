@@ -140,10 +140,17 @@ const line2Body = line2.endsWith('.') ? line2.slice(0, -1) : line2;
 </script>
 
 <style>
+  /* copy and stage share one grid cell, so the hero always grows to hold the whole composer */
   .hero {
     position: relative;
-    min-height: max(calc(100svh - var(--nav-h)), 820px);
+    display: grid;
+    min-height: calc(100svh - var(--nav-h));
     overflow: hidden;
+  }
+
+  .hero-copy,
+  .stage-wrap {
+    grid-area: 1 / 1;
   }
 
   .hero-copy {
@@ -209,18 +216,18 @@ const line2Body = line2.endsWith('.') ? line2.slice(0, -1) : line2;
   }
 
   /* the stage: columns 5–12, from 42% down, bleeding off the right and bottom */
+  /* above the copy column: the copy's box spans the full width and would otherwise swallow clicks on the composer */
   .stage-wrap {
-    position: absolute;
-    top: 42%;
-    right: 0;
-    bottom: 0;
-    left: calc(var(--m) + (100% - 2 * var(--m) + var(--gutter)) / 12 * 4);
+    position: relative;
+    z-index: 2;
+    margin-top: clamp(300px, 40svh, 380px);
+    margin-left: calc(var(--m) + (100% - 2 * var(--m) + var(--gutter)) / 12 * 4);
   }
 
   .stage {
     --tab: calc((100vw - 2 * var(--m) + var(--gutter)) / 12 * 2);
-    height: 100%;
-    padding: 72px 0 0 56px;
+    min-height: 100%;
+    padding: 72px 0 48px 56px;
     /* the corner is cut as a folder tab, the shape of the sheet behind the logo's bag */
     clip-path: polygon(0 0, var(--tab) 0, calc(var(--tab) + 40px) 40px, 100% 40px, 100% 100%, 0 100%);
   }
@@ -489,6 +496,7 @@ const line2Body = line2.endsWith('.') ? line2.slice(0, -1) : line2;
   /* phone and tablet: the stage follows the copy at full width */
   @media (max-width: 1023px) {
     .hero {
+      display: block;
       min-height: 0;
     }
 
@@ -506,9 +514,8 @@ const line2Body = line2.endsWith('.') ? line2.slice(0, -1) : line2;
     }
 
     .stage-wrap {
-      position: relative;
-      inset: auto;
       margin-top: 48px;
+      margin-left: 0;
     }
 
     .stage {

@@ -143,7 +143,7 @@ const en: Dict = {
     greetingAction: 'Open WhatsApp',
   },
   footer: {
-    blurb: 'Software studio in Jakarta. We design and build procurement, warehouse and commerce systems for Indonesian companies and startups.',
+    blurb: 'Custom software for the way your business really works. Procurement, inventory and wholesale systems your team can rely on every day.',
     pagesLabel: 'On this page',
     contactLabel: 'Contact',
     notes: ['Asemka, software studio in Jakarta', 'Mon to Fri, 08.00 to 17.00 WIB', 'Procurement, warehouse and commerce systems'],

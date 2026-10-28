@@ -143,7 +143,7 @@ const id: Dict = {
     greetingAction: 'Buka WhatsApp',
   },
   footer: {
-    blurb: 'Studio software di Jakarta. Kami merancang dan membangun sistem pengadaan, gudang, dan commerce untuk perusahaan dan startup Indonesia.',
+    blurb: 'Software custom untuk cara kerja bisnis Anda yang sebenarnya. Sistem pengadaan, inventori, dan grosir yang bisa diandalkan tim Anda setiap hari.',
     pagesLabel: 'Di halaman ini',
     contactLabel: 'Kontak',
     notes: ['Asemka, studio software di Jakarta', 'Senin sampai Jumat, 08.00 sampai 17.00 WIB', 'Sistem pengadaan, gudang, dan commerce'],
