@@ -1,0 +1,113 @@
+---
+import type { Dict } from '../i18n/types';
+
+interface Props {
+  dict: Dict;
+}
+
+const { dict } = Astro.props;
+const [main, ...rest] = dict.testimonial.items;
+---
+
+<!-- Placeholder testimonials: replace with real client quotes before launch. -->
+<section class="quotes field-ember frame" aria-labelledby="quotes-title">
+  <h2 id="quotes-title" data-reveal>{dict.testimonial.heading}</h2>
+  <div class="grid" data-stagger>
+    <figure class="main" data-reveal>
+      <blockquote><p>“{main.quote}”</p></blockquote>
+      <figcaption>
+        <b>{main.name}</b>
+        <span>{main.role}, {main.company}</span>
+      </figcaption>
+    </figure>
+    <div class="side">
+      {
+        rest.map((q) => (
+          <figure data-reveal>
+            <blockquote>
+              <p>“{q.quote}”</p>
+            </blockquote>
+            <figcaption>
+              <b>{q.name}</b>
+              <span>
+                {q.role}, {q.company}
+              </span>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .quotes {
+    padding-block: var(--section-gap);
+  }
+
+  h2 {
+    margin-bottom: 64px;
+    font-size: var(--step-display);
+  }
+
+  .grid {
+    row-gap: 56px;
+    align-items: start;
+  }
+
+  .main {
+    grid-column: 1 / 8;
+  }
+
+  .main blockquote {
+    font-size: clamp(1.5rem, 1rem + 1.1vw, 2rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+
+  .main blockquote p {
+    max-width: 46ch;
+  }
+
+  .side {
+    grid-column: 9 / 13;
+    display: grid;
+    gap: 48px;
+  }
+
+  .side blockquote {
+    font-size: var(--step-lead);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+  }
+
+  figcaption {
+    display: grid;
+    gap: 2px;
+    margin-top: 24px;
+    font-size: var(--step-body);
+    font-weight: 600;
+  }
+
+  figcaption b {
+    font-weight: 600;
+  }
+
+  @media (max-width: 899px) {
+    .main,
+    .side {
+      grid-column: 1 / -1;
+    }
+
+    h2 {
+      margin-bottom: 40px;
+      font-size: clamp(1.875rem, 9vw, 3rem);
+    }
+
+    .main blockquote {
+      font-size: 1.25rem;
+    }
+  }
+</style>

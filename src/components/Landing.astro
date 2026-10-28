@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from './Nav.astro';
+import Hero from './Hero.astro';
+import Work from './Work.astro';
+import Services from './Services.astro';
+import Testimonial from './Testimonial.astro';
+import Process from './Process.astro';
+import Faq from './Faq.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+import type { Dict } from '../i18n/types';
+
+interface Props {
+  dict: Dict;
+}
+
+const { dict } = Astro.props;
+---
+
+<Base dict={dict} schema>
+  <Nav dict={dict} />
+  <main id="main">
+    <Hero dict={dict} />
+    <Work dict={dict} />
+    <Services dict={dict} />
+    <Testimonial dict={dict} />
+    <Process dict={dict} />
+    <Faq dict={dict} />
+    <Contact dict={dict} />
+  </main>
+  <Footer dict={dict} />
+</Base>

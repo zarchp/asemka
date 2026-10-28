@@ -1,0 +1,19 @@
+import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
+
+export default defineConfig({
+  site: 'https://asemka.com',
+  trailingSlash: 'ignore',
+  build: { format: 'directory' },
+  i18n: {
+    locales: ['en', 'id'],
+    defaultLocale: 'en',
+    routing: { prefixDefaultLocale: false },
+  },
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/404'),
+      i18n: { defaultLocale: 'en', locales: { en: 'en', id: 'id' } },
+    }),
+  ],
+});

@@ -1,0 +1,180 @@
+---
+import type { Dict } from '../i18n/types';
+import { waLink } from '../i18n/site';
+
+interface Props {
+  dict: Dict;
+}
+
+const { dict } = Astro.props;
+const home = dict.lang === 'id' ? '/id/' : '/';
+const hello = dict.lang === 'id' ? 'Halo Asemka. Bisa kita ngobrol soal proyek?' : 'Hi Asemka. Can we talk about a project?';
+const links = [
+  { href: '#work', label: dict.nav.work },
+  { href: '#services', label: dict.nav.services },
+  { href: '#process', label: dict.nav.process },
+  { href: '#faq', label: dict.nav.faq },
+];
+---
+
+<a class="skip" href="#main">{dict.nav.skip}</a>
+<header id="top" class="bar">
+  <nav class="nav frame" aria-label={dict.nav.label}>
+    <a href={home} class="mark" aria-label="Asemka" aria-current="page">
+      <img src="/images/logo.png" alt="Asemka" width="1773" height="423" />
+    </a>
+    <ul>
+      {
+        links.map((l) => (
+          <li class="section-link">
+            <a class="link" href={l.href} data-nav-link>
+              {l.label}
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <a class="link lang" href={dict.nav.switchHref} hreflang={dict.nav.switchLang} lang={dict.nav.switchLang}>
+          <span class="long">{dict.nav.switchLabel}</span>
+          <span class="short">{dict.nav.switchLang.toUpperCase()}</span>
+        </a>
+      </li>
+      <li>
+        <a class="button small" href={waLink(hello)} rel="noopener" target="_blank">
+          <svg viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M128 24a104 104 0 0 0-91.82 152.88l-11.35 34.05a16 16 0 0 0 20.24 20.24l34.05-11.35A104 104 0 1 0 128 24Zm0 192a87.87 87.87 0 0 1-44.06-11.81 8 8 0 0 0-4-1.08 8.32 8.32 0 0 0-2.53.41L40 216l12.47-37.4a8 8 0 0 0-.66-6.54A88 88 0 1 1 128 216Z" /></svg>
+          <span class="long">{dict.nav.cta}</span>
+          <span class="short">WhatsApp</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  // Mark the link of the section in view.
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]')];
+  const byId = new Map(links.map((a) => [a.hash.slice(1), a]));
+  if ('IntersectionObserver' in window && links.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          const a = byId.get(e.target.id);
+          if (!a) continue;
+          if (e.isIntersecting) {
+            links.forEach((l) => l.removeAttribute('aria-current'));
+            a.setAttribute('aria-current', 'true');
+          } else if (a.getAttribute('aria-current')) {
+            a.removeAttribute('aria-current');
+          }
+        }
+      },
+      { rootMargin: '-45% 0px -50% 0px' },
+    );
+    byId.forEach((_, id) => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+  }
+</script>
+
+<style>
+  .bar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--paper);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    height: var(--nav-h);
+  }
+
+  .mark img {
+    width: auto;
+    height: 32px;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 2.2vw, 32px);
+  }
+
+  .link {
+    display: inline-block;
+    padding: 8px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration-color: transparent;
+  }
+
+  .link[aria-current] {
+    text-decoration-color: var(--orange);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 8px;
+  }
+
+  .lang {
+    font-weight: 600;
+  }
+
+  .small {
+    min-height: 44px;
+    padding: 8px 16px;
+    gap: 8px;
+    font-size: 0.875rem;
+  }
+
+  .small svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .small:hover svg {
+      transform: none;
+    }
+  }
+
+  .short {
+    display: none;
+  }
+
+  @media (max-width: 1023px) {
+    .section-link {
+      display: none;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .long {
+      display: none;
+    }
+
+    .short {
+      display: inline;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav {
+      gap: 12px;
+    }
+
+    ul {
+      gap: 16px;
+    }
+
+    .mark img {
+      height: 26px;
+    }
+
+    .small {
+      padding: 8px 12px;
+    }
+  }
+</style>

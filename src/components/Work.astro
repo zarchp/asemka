@@ -1,0 +1,218 @@
+---
+import type { Dict } from '../i18n/types';
+import { waLink } from '../i18n/site';
+import Approval from './screens/Approval.astro';
+import PickList from './screens/PickList.astro';
+import Catalog from './screens/Catalog.astro';
+
+interface Props {
+  dict: Dict;
+}
+
+const { dict } = Astro.props;
+const fields = { procurement: 'field-orange', warehouse: 'field-grey', wholesale: 'field-paper' } as const;
+---
+
+<section id="work" class="work field-ink" aria-labelledby="work-title">
+  <h2 id="work-title" class="frame" data-reveal>{dict.work.heading}</h2>
+
+  {
+    dict.work.projects.map((p, i) => (
+      <article class={`band band-${p.id} ${fields[p.id]}`} style={`--n:${i}`} aria-labelledby={`p-${p.id}`}>
+        <div class="tab-row frame">
+          <h3 id={`p-${p.id}`} class="tab">
+            {p.name}
+          </h3>
+        </div>
+        <div class="body frame">
+          <p class="category">{p.category}</p>
+          <div class="content grid" data-stagger>
+            <figure class="demo" data-reveal>
+              <div class="shot">
+                {p.id === 'procurement' && <Approval />}
+                {p.id === 'warehouse' && <PickList />}
+                {p.id === 'wholesale' && <Catalog />}
+              </div>
+              <figcaption>{p.hint}</figcaption>
+            </figure>
+            <div class="text" data-reveal>
+              <p>{p.body}</p>
+              <a class="link more" href={waLink(p.message)} rel="noopener" target="_blank">
+                {p.link}
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</section>
+
+<style>
+  .work {
+    padding-top: var(--section-gap);
+  }
+
+  h2 {
+    margin-bottom: 64px;
+    font-size: var(--step-display);
+  }
+
+  /* folders: each band sticks a little lower than the last, so the tabs pile up */
+  .band {
+    --tab-h: 56px;
+    --strip: 48px;
+    position: sticky;
+    top: calc(var(--nav-h) + var(--n) * (var(--tab-h) + var(--strip)));
+    background: transparent;
+    color: var(--fg);
+  }
+
+  .tab-row {
+    height: var(--tab-h);
+    display: flex;
+    align-items: flex-end;
+  }
+
+  /* every tab has its own slot, a third of the frame, so the pile never covers a name */
+  .tab {
+    --slot: min(420px, (100vw - 2 * var(--m) - 12px) / 3);
+    display: flex;
+    align-items: center;
+    width: var(--slot);
+    height: var(--tab-h);
+    padding: 0 48px 0 24px;
+    margin-left: calc(var(--n) * (var(--slot) + 6px));
+    background: var(--ground);
+    font-size: var(--step-lead);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    white-space: nowrap;
+    clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 100%, 0 100%);
+  }
+
+  @media (max-width: 1279px) {
+    .tab {
+      font-size: 1.1875rem;
+      padding-left: 16px;
+    }
+  }
+
+  .body {
+    min-height: calc(80svh);
+    padding-bottom: 96px;
+    background: var(--ground);
+  }
+
+  .category {
+    height: var(--strip);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: var(--step-small);
+    font-weight: 500;
+  }
+
+  .content {
+    align-items: start;
+    padding-top: 32px;
+  }
+
+  .demo {
+    grid-column: 1 / 8;
+  }
+
+  .shot {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  figcaption {
+    margin-top: 12px;
+    font-size: var(--step-small);
+    font-weight: 500;
+  }
+
+  /* screens keep their true size; a narrow frame crops them instead of squeezing them */
+  .shot :global([data-ui]) {
+    min-width: 760px;
+  }
+
+  .text {
+    grid-column: 9 / 13;
+  }
+
+  .text p {
+    max-width: 44ch;
+  }
+
+  /* bright orange band: white text is set bold at 19px or more, the large-text level where 3.6:1 is enough */
+  .band-procurement .text p,
+  .band-procurement .category,
+  .band-procurement figcaption,
+  .band-procurement .more {
+    font-size: 1.1875rem;
+    font-weight: 700;
+  }
+
+  .band-procurement .tab {
+    font-weight: 700;
+  }
+
+  .more {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 8px 0;
+    font-weight: 600;
+  }
+
+  @media (max-width: 899px) {
+    .band {
+      position: relative;
+      top: auto;
+    }
+
+    .band {
+      --tab-h: 48px;
+    }
+
+    .tab {
+      width: auto;
+      max-width: calc(100% - 24px);
+      margin-left: 0;
+      font-size: 1.1875rem;
+      white-space: normal;
+    }
+
+    .body {
+      min-height: 0;
+      padding-bottom: 64px;
+    }
+
+    .category {
+      justify-content: flex-start;
+      height: auto;
+      padding-top: 16px;
+    }
+
+    .content {
+      padding-top: 20px;
+      row-gap: 24px;
+    }
+
+    .demo,
+    .text {
+      grid-column: 1 / -1;
+    }
+
+    /* the demo keeps its true size and scrolls sideways on a phone */
+    .shot {
+      aspect-ratio: auto;
+      height: 460px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+    }
+  }
+</style>

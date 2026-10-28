@@ -1,0 +1,278 @@
+---
+// Wholesale marketplace catalogue, rebuilt in HTML with sample data and no client names.
+// Interactive: filter by category, add to cart. Each swatch is a flat drawing of the cloth's colourway.
+const cats = [
+  { id: 'all', label: 'Semua' },
+  { id: 'wanita', label: 'Fashion wanita' },
+  { id: 'muslim', label: 'Busana muslim' },
+  { id: 'batik', label: 'Batik' },
+  { id: 'anak', label: 'Anak' },
+];
+const products = [
+  { name: 'Gamis katun rayon', shop: 'Toko Sari Busana, Bandung', price: 'Rp 89.500', min: 12, cat: 'muslim', a: '#2f4a3a', b: '#c9b48a', motif: 'stripe' },
+  { name: 'Kemeja batik cap', shop: 'Griya Batik Laweyan, Solo', price: 'Rp 165.000', min: 6, cat: 'batik', a: '#5a2d14', b: '#e3c58c', motif: 'kawung' },
+  { name: 'Blouse linen polos', shop: 'Kirana Collection, Jakarta', price: 'Rp 72.000', min: 12, cat: 'wanita', a: '#d8cfc0', b: '#b8ab95', motif: 'plain' },
+  { name: 'Dress anak motif bunga', shop: 'Mutiara Kids, Surabaya', price: 'Rp 54.500', min: 24, cat: 'anak', a: '#f2b8a2', b: '#fff4ea', motif: 'dot' },
+  { name: 'Tunik ceruty', shop: 'Hijab Ayu, Bandung', price: 'Rp 68.000', min: 12, cat: 'muslim', a: '#7b5c8c', b: '#e6dcef', motif: 'dot' },
+  { name: 'Kain batik tulis', shop: 'Batik Pesisir, Pekalongan', price: 'Rp 245.000', min: 3, cat: 'batik', a: '#1e3557', b: '#d9c38f', motif: 'kawung' },
+  { name: 'Rok plisket', shop: 'Kirana Collection, Jakarta', price: 'Rp 58.500', min: 12, cat: 'wanita', a: '#a3483a', b: '#c96a5b', motif: 'stripe' },
+  { name: 'Kaos anak katun', shop: 'Mutiara Kids, Surabaya', price: 'Rp 27.500', min: 36, cat: 'anak', a: '#f0c75e', b: '#fff6d8', motif: 'stripe' },
+];
+---
+
+<div class="screen" data-ui data-catalog>
+  <div class="top">
+    <p class="logo">Grosir<b> Nusantara</b></p>
+    <p class="search">Cari produk grosir</p>
+    <p class="cart">Keranjang <b data-cart>0</b></p>
+  </div>
+  <div class="cats" role="group" aria-label="Kategori">
+    {
+      cats.map((c, i) => (
+        <button type="button" data-cat={c.id} aria-pressed={i === 0 ? 'true' : 'false'}>
+          {c.label}
+        </button>
+      ))
+    }
+  </div>
+  <div class="grid">
+    {
+      products.map((p, i) => (
+        <div class="card" data-in={p.cat}>
+          <svg class="swatch" viewBox="0 0 120 120" aria-hidden="true">
+            <defs>
+              <pattern id={`sw-${i}`} width={p.motif === 'stripe' ? 18 : p.motif === 'kawung' ? 30 : 22} height={p.motif === 'stripe' ? 120 : p.motif === 'kawung' ? 30 : 22} patternUnits="userSpaceOnUse">
+                <rect width="100%" height="100%" fill={p.a} />
+                {p.motif === 'stripe' && <rect x="14" width="4" height="120" fill={p.b} />}
+                {p.motif === 'kawung' && (
+                  <g fill={p.b}>
+                    <ellipse cx="15" cy="6" rx="5" ry="7" />
+                    <ellipse cx="15" cy="24" rx="5" ry="7" />
+                    <ellipse cx="6" cy="15" rx="7" ry="5" />
+                    <ellipse cx="24" cy="15" rx="7" ry="5" />
+                  </g>
+                )}
+                {p.motif === 'dot' && <circle cx="11" cy="11" r="4" fill={p.b} />}
+              </pattern>
+            </defs>
+            <rect width="120" height="120" rx="8" fill={p.motif === 'plain' ? p.a : `url(#sw-${i})`} />
+          </svg>
+          <p class="name">{p.name}</p>
+          <p class="shop">{p.shop}</p>
+          <p class="price">
+            {p.price}
+            <span>/ pcs, min. {p.min}</span>
+          </p>
+          <button type="button" class="add" data-add={p.min} data-name={p.name}>
+            Tambah {p.min} pcs
+          </button>
+        </div>
+      ))
+    }
+  </div>
+  <p class="toast" role="status" aria-live="polite" data-toast></p>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-catalog]').forEach((root) => {
+    const cart = root.querySelector<HTMLElement>('[data-cart]')!;
+    const toast = root.querySelector<HTMLElement>('[data-toast]')!;
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[data-cat]')];
+    const cards = [...root.querySelectorAll<HTMLElement>('[data-in]')];
+    let items = 0;
+    let timer = 0;
+
+    tabs.forEach((tab) =>
+      tab.addEventListener('click', () => {
+        tabs.forEach((t) => t.setAttribute('aria-pressed', String(t === tab)));
+        const cat = tab.dataset.cat;
+        cards.forEach((c) => (c.hidden = cat !== 'all' && c.dataset.in !== cat));
+      }),
+    );
+
+    root.querySelectorAll<HTMLButtonElement>('[data-add]').forEach((btn) =>
+      btn.addEventListener('click', () => {
+        items += Number(btn.dataset.add);
+        cart.textContent = String(items);
+        cart.animate([{ transform: 'scale(1.35)' }, { transform: 'none' }], { duration: 320, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' });
+        toast.textContent = `${btn.dataset.name}, ${btn.dataset.add} pcs masuk keranjang.`;
+        toast.classList.add('is-on');
+        clearTimeout(timer);
+        timer = window.setTimeout(() => toast.classList.remove('is-on'), 2400);
+      }),
+    );
+  });
+</script>
+
+<style>
+  .screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    color: #161616;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    overflow: hidden;
+  }
+
+  button {
+    font: inherit;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
+  .logo b {
+    color: #c23000;
+    font-weight: 600;
+  }
+
+  .search {
+    flex: 1;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #f1f1ee;
+    color: #6b6b68;
+    white-space: nowrap;
+  }
+
+  .cart {
+    white-space: nowrap;
+  }
+
+  .cart b {
+    display: inline-grid;
+    place-items: center;
+    min-width: 22px;
+    height: 22px;
+    margin-left: 4px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: #161616;
+    color: #fff;
+    font-size: 0.8125rem;
+  }
+
+  .cats {
+    display: flex;
+    gap: 8px;
+    padding: 0 24px 16px;
+    white-space: nowrap;
+  }
+
+  .cats button {
+    min-height: 34px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #f1f1ee;
+    color: #161616;
+    transition: background-color 200ms var(--ease-out);
+  }
+
+  .cats button[aria-pressed='true'] {
+    background: #161616;
+    color: #fff;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .cats button[aria-pressed='false']:hover {
+      background: #e3e3df;
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    gap: 16px 12px;
+    padding: 0 24px 24px;
+  }
+
+  .card[hidden] {
+    display: none;
+  }
+
+  .swatch {
+    width: 100%;
+    height: auto;
+  }
+
+  .name {
+    margin-top: 8px;
+    font-weight: 600;
+  }
+
+  .shop {
+    color: #555552;
+    font-size: 0.8125rem;
+  }
+
+  .price {
+    margin-top: 4px;
+    font-weight: 600;
+    color: #c23000;
+  }
+
+  .price span {
+    color: #555552;
+    font-weight: 400;
+    font-size: 0.8125rem;
+  }
+
+  .add {
+    width: 100%;
+    min-height: 34px;
+    margin-top: 8px;
+    border-radius: 6px;
+    background: #161616;
+    color: #fff;
+    font-weight: 600;
+    transition:
+      transform 140ms var(--ease-out),
+      background-color 200ms var(--ease-out);
+  }
+
+  .add:active {
+    transform: scale(0.97);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .add:hover {
+      background: #c23000;
+    }
+  }
+
+  .toast {
+    position: absolute;
+    left: 24px;
+    bottom: 16px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #161616;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+      opacity 240ms var(--ease-out),
+      transform 240ms var(--ease-out);
+    pointer-events: none;
+  }
+
+  .toast:global(.is-on) {
+    opacity: 1;
+    transform: none;
+  }
+</style>

@@ -41,3 +41,15 @@ yarn-error.log*
 next-env.d.ts
 
 *.ps1
+
+# astro
+dist/
+.astro/
+
+# design skill working files
+.taste-skill/inspect/
+.taste-skill/before/
+.taste-skill/after/
+
+# cloned reference library (own git repo)
+.claude/meng-skills/

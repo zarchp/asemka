@@ -1,0 +1,188 @@
+---
+import type { Dict } from '../i18n/types';
+import { EMAIL, WA_DISPLAY, WA_LOCAL, waLink } from '../i18n/site';
+
+interface Props {
+  dict: Dict;
+}
+
+const { dict } = Astro.props;
+const f = dict.footer;
+const hello = dict.lang === 'id' ? 'Halo Asemka. Bisa kita ngobrol soal proyek?' : 'Hi Asemka. Can we talk about a project?';
+const pages = [
+  { href: '#work', label: dict.nav.work },
+  { href: '#services', label: dict.nav.services },
+  { href: '#process', label: dict.nav.process },
+  { href: '#faq', label: dict.nav.faq },
+];
+---
+
+<footer class="footer field-ink frame">
+  <div class="cols grid">
+    <div class="brand">
+      <img src="/images/icon.png" alt="" width="44" height="44" />
+      <p>{f.blurb}</p>
+    </div>
+    <nav class="col pages" aria-label={f.pagesLabel}>
+      <h2>{f.pagesLabel}</h2>
+      <ul>
+        {
+          pages.map((p) => (
+            <li>
+              <a class="link" href={p.href}>
+                {p.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <div class="col contact">
+      <h2>{f.contactLabel}</h2>
+      <ul>
+        <li><a class="link" href={waLink(hello)} rel="noopener" target="_blank">WhatsApp {WA_LOCAL}</a></li>
+        <li><a class="link" href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+        <li>Jakarta, Indonesia</li>
+        <li>{f.notes[1]}</li>
+      </ul>
+    </div>
+  </div>
+
+  <a class="line" href={waLink(hello)} rel="noopener" target="_blank" aria-label={`${f.lineLabel}: ${WA_DISPLAY}`}>
+    {WA_DISPLAY}
+  </a>
+
+  <div class="meta">
+    <p>
+      <a class="link" href="/privacy/">{f.privacy}</a>
+      <a class="link" href={dict.nav.switchHref} hreflang={dict.nav.switchLang} lang={dict.nav.switchLang}>{dict.nav.switchLabel}</a>
+    </p>
+    <p>{f.credits}</p>
+    <p><a class="link" href="#top">{f.top}</a></p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding-block: clamp(72px, 9vw, 120px) 32px;
+  }
+
+  .cols {
+    row-gap: 48px;
+    align-items: start;
+  }
+
+  .brand {
+    grid-column: 1 / 6;
+  }
+
+  .brand img {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--paper);
+    padding: 4px;
+  }
+
+  .brand p {
+    max-width: 38ch;
+    margin-top: 20px;
+    color: var(--muted);
+  }
+
+  .pages {
+    grid-column: 7 / 9;
+  }
+
+  .contact {
+    grid-column: 9 / 13;
+  }
+
+  h2 {
+    margin-bottom: 16px;
+    font-size: var(--step-small);
+    font-weight: 600;
+    letter-spacing: 0;
+    color: var(--muted);
+  }
+
+  .col ul {
+    display: grid;
+    gap: 8px;
+  }
+
+  .col .link {
+    display: inline-block;
+    padding: 2px 0;
+  }
+
+  .line {
+    display: block;
+    margin-top: clamp(64px, 8vw, 112px);
+    font-size: var(--step-poster);
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 0.95;
+    text-decoration: none;
+    white-space: nowrap;
+    color: var(--orange);
+    transition: color var(--t-hover) var(--ease-out);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .line:hover {
+      color: var(--paper);
+    }
+  }
+
+  .meta {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    margin-top: 40px;
+    font-size: var(--step-small);
+  }
+
+  .meta p:first-child {
+    display: flex;
+    gap: 24px;
+  }
+
+  .meta p:last-child {
+    text-align: right;
+  }
+
+  @media (max-width: 899px) {
+    .brand {
+      grid-column: 1 / -1;
+    }
+
+    .pages {
+      grid-column: 1 / 6;
+    }
+
+    .contact {
+      grid-column: 6 / -1;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .pages,
+    .contact {
+      grid-column: 1 / -1;
+    }
+
+    .line {
+      font-size: 11.4vw;
+    }
+
+    .meta {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .meta p:last-child {
+      text-align: left;
+    }
+  }
+</style>

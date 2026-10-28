@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import en from '../i18n/en';
+import { EMAIL } from '../i18n/site';
+---
+
+<Base dict={en} title="Privacy · Asemka" description="How Asemka handles the information you send us." alternates={false}>
+  <main id="main" class="doc field-paper frame">
+    <a href="/" class="link">Asemka</a>
+    <h1>Privacy</h1>
+    <p>This site sets no cookies and runs no analytics or advertising trackers.</p>
+    <p>The message builder on the homepage runs in your browser. Nothing you choose or type there is sent to us until you press send and WhatsApp opens. From that point, the message is handled by WhatsApp under its own privacy policy.</p>
+    <p>We use what you send us on WhatsApp or by email only to reply to you and to prepare a quote. We do not sell or share it.</p>
+    <p>To ask what we hold about you, or to have it deleted, email <a class="link" href={`mailto:${EMAIL}`}>{EMAIL}</a>.</p>
+    <p class="note">Last updated 28 October 2026.</p>
+  </main>
+</Base>
+
+<style>
+  .doc {
+    max-width: calc(68ch + 2 * var(--m));
+    min-height: 100svh;
+    padding-block: 28px 120px;
+  }
+
+  h1 {
+    margin: 96px 0 40px;
+    font-size: var(--step-display);
+  }
+
+  p + p {
+    margin-top: 16px;
+  }
+
+  .note {
+    color: var(--muted);
+    font-size: var(--step-small);
+  }
+</style>

@@ -1,0 +1,2763 @@
+{
+ "url": "http://localhost:4321/id/",
+ "at": "2026-10-28T03:45:22.625Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 10,
+   "filled": [
+    0.28,
+    0.94,
+    0.96,
+    0.56,
+    0.96,
+    0.89,
+    0.51,
+    0.89,
+    0.97,
+    0.99
+   ],
+   "motion": {
+    "elements": 55,
+    "css": 2,
+    "transitions": 53,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 8853,
+     "screens": 9.8,
+     "words": 1026,
+     "img": 5,
+     "video": 0,
+     "canvas": 0,
+     "svg": 32,
+     "sections": 7,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 7,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 6,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Software bisnis, dibuat di Indonesia",
+     "words": 5,
+     "chars": 36,
+     "lines": 2,
+     "size": 76,
+     "vw": 5.3,
+     "font": "Albert Sans",
+     "weight": 600,
+     "tracking": -0.035,
+     "leading": 1,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.47,
+     "top": 153,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Software bisnis, dibuat di Indonesia",
+     "words": 5,
+     "lines": 2,
+     "size": 76,
+     "font": "Albert Sans"
+    },
+    "headings": [
+     {
+      "text": "Software bisnis, dibuat di Indonesia",
+      "words": 5,
+      "chars": 36,
+      "lines": 2,
+      "size": 76,
+      "vw": 5.3,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 153,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Sistem yang kami buat",
+      "words": 4,
+      "chars": 21,
+      "lines": 1,
+      "size": 76,
+      "vw": 5.3,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 1073,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Yang kami kerjakan",
+      "words": 3,
+      "chars": 18,
+      "lines": 2,
+      "size": 76,
+      "vw": 5.3,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.31,
+      "top": 3714,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Kata klien",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 76,
+      "vw": 5.3,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 4603,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "“Mereka bertanya soal gudang kami sebelum anggaran. Enam minggu kemudian tim picking bekerja dari ponsel, dan hitungan stok akhirnya cocok dengan rak.”",
+      "words": 22,
+      "chars": 151,
+      "lines": 3,
+      "size": 31.8,
+      "vw": 2.2,
+      "font": "Albert Sans",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.55,
+      "top": 4743,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Cara kami mulai",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 76,
+      "vw": 5.3,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.55,
+      "top": 5539,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Pertanyaan",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 76,
+      "vw": 5.3,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.31,
+      "top": 6597,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Ngobrol dengan Asemka",
+      "words": 3,
+      "chars": 21,
+      "lines": 1,
+      "size": 76,
+      "vw": 5.3,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 7322,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "WhatsApp: WhatsApp 0821 2456 1534",
+      "words": 5,
+      "chars": 33,
+      "lines": 2,
+      "size": 76,
+      "vw": 5.3,
+      "font": "Albert Sans",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 7472,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Email: sales@asemka.com",
+      "words": 2,
+      "chars": 23,
+      "lines": 2,
+      "size": 76,
+      "vw": 5.3,
+      "font": "Albert Sans",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 7622,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Kota: Jakarta, Indonesia",
+      "words": 3,
+      "chars": 24,
+      "lines": 2,
+      "size": 76,
+      "vw": 5.3,
+      "font": "Albert Sans",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 7772,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Jam kerja: Senin s.d. Jumat, 08.00 s.d. 17.00 WIB",
+      "words": 9,
+      "chars": 49,
+      "lines": 2,
+      "size": 76,
+      "vw": 5.3,
+      "font": "Albert Sans",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 7922,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Halo",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 76,
+      "vw": 5.3,
+      "font": "Albert Sans",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 8072,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "+62 821 2456 1534",
+      "words": 4,
+      "chars": 17,
+      "lines": 1,
+      "size": 129,
+      "vw": 9,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 8638,
+      "tag": "a",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 14,
+     "maxLines": 3,
+     "over2Lines": 0,
+     "statements": 6,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Albert Sans",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      14,
+      16,
+      19,
+      26,
+      32,
+      76,
+      129
+     ],
+     "sizeCount": 7,
+     "notLoaded": [],
+     "body": {
+      "font": "Albert Sans",
+      "size": 19,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 16.4
+     },
+     "measureChars": 46,
+     "max": {
+      "size": 129,
+      "vw": 9,
+      "font": "Albert Sans",
+      "text": "+62 821 2456 1534"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.02,
+     "centerShare": 0.04,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f5f5f2",
+     "bodyBgHsl": {
+      "h": 60,
+      "s": 0.13,
+      "l": 0.95
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f5f5f2",
+       "top": 72,
+       "hsl": {
+        "h": 60,
+        "s": 0.13,
+        "l": 0.95
+       }
+      },
+      {
+       "color": "#fe3c00",
+       "top": 420,
+       "hsl": {
+        "h": 14,
+        "s": 1,
+        "l": 0.5
+       }
+      },
+      {
+       "color": "#161717",
+       "top": 900,
+       "hsl": {
+        "h": 180,
+        "s": 0.02,
+        "l": 0.09
+       }
+      },
+      {
+       "color": "#404040",
+       "top": 2045,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.25
+       }
+      },
+      {
+       "color": "#d43001",
+       "top": 4430,
+       "hsl": {
+        "h": 13,
+        "s": 0.99,
+        "l": 0.42
+       }
+      },
+      {
+       "color": "#065f54",
+       "top": 7322,
+       "hsl": {
+        "h": 173,
+        "s": 0.88,
+        "l": 0.2
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#161717",
+       "share": 0.34
+      },
+      {
+       "color": "#f5f5f2",
+       "share": 0.28
+      },
+      {
+       "color": "#fffefe",
+       "share": 0.18
+      },
+      {
+       "color": "#545553",
+       "share": 0.09
+      },
+      {
+       "color": "#a3a2a1",
+       "share": 0.08
+      }
+     ],
+     "button": {
+      "bg": "#161717",
+      "hsl": {
+       "h": 180,
+       "s": 0.02,
+       "l": 0.09
+      },
+      "fg": "#fffefe"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 20,
+     "inHero": 3,
+     "radius": 6,
+     "height": 34,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Langsung ke isi",
+      "Chat WhatsApp",
+      "Kirim lewat WhatsApp"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 4,
+     "boxRadius": 12,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "svg",
+      "ratio": 0.09
+     }
+    ],
+    "nav": {
+     "links": 7,
+     "fixed": true,
+     "height": 72,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "albert sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 8853,
+    "margins": {
+     "left": 40,
+     "right": 53
+    },
+    "sections": [
+     {
+      "sel": "section.hero.field-paper",
+      "tag": "section",
+      "top": 72,
+      "height": 828,
+      "words": 109,
+      "media": 1,
+      "middle": 62,
+      "heading": {
+       "text": "Software bisnis,",
+       "size": 76,
+       "tag": "h1"
+      },
+      "left": 40,
+      "right": 40,
+      "textLeft": 40,
+      "textRight": 87,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "article.band.band-procurement",
+      "tag": "article",
+      "top": 1213,
+      "height": 776,
+      "words": 180,
+      "media": 0,
+      "middle": 159,
+      "heading": {
+       "text": "Pengadaan dan persetujuan",
+       "size": 26,
+       "tag": "h3"
+      },
+      "left": 40,
+      "right": 40,
+      "textLeft": 40,
+      "textRight": 40,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "article.band.band-warehouse",
+      "tag": "article",
+      "top": 1989,
+      "height": 776,
+      "words": 167,
+      "media": 0,
+      "middle": 159,
+      "heading": {
+       "text": "Asemka Operation",
+       "size": 26,
+       "tag": "h3"
+      },
+      "left": 40,
+      "right": 40,
+      "textLeft": 40,
+      "textRight": 40,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "article.band.band-wholesale",
+      "tag": "article",
+      "top": 2765,
+      "height": 776,
+      "words": 143,
+      "media": 8,
+      "middle": 115,
+      "heading": {
+       "text": "Marketplace grosir",
+       "size": 26,
+       "tag": "h3"
+      },
+      "left": 40,
+      "right": 40,
+      "textLeft": 40,
+      "textRight": 40,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "section#services.services.field-ink",
+      "tag": "section",
+      "top": 3541,
+      "height": 889,
+      "words": 98,
+      "media": 0,
+      "middle": 224,
+      "heading": {
+       "text": "Yang kami kerjakan",
+       "size": 76,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 79,
+      "textLeft": 40,
+      "textRight": 79,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.quotes.field-ember",
+      "tag": "section",
+      "top": 4430,
+      "height": 936,
+      "words": 79,
+      "media": 0,
+      "middle": 143,
+      "heading": {
+       "text": "Kata klien",
+       "size": 76,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 67,
+      "textLeft": 40,
+      "textRight": 67,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#process.process.field-paper",
+      "tag": "section",
+      "top": 5366,
+      "height": 1058,
+      "words": 113,
+      "media": 0,
+      "middle": 43,
+      "heading": {
+       "text": "Cara kami mulai",
+       "size": 76,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 125,
+      "textLeft": 40,
+      "textRight": 125,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq.faq.field-grey",
+      "tag": "section",
+      "top": 6424,
+      "height": 898,
+      "words": 147,
+      "media": 0,
+      "middle": 123,
+      "heading": {
+       "text": "Pertanyaan",
+       "size": 76,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 344,
+      "textLeft": 40,
+      "textRight": 344,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#contact.contact.field-green",
+      "tag": "section",
+      "top": 7322,
+      "height": 900,
+      "words": 18,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Ngobrol dengan Asemka",
+       "size": 76,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 168,
+      "textLeft": 40,
+      "textRight": 168,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.footer.field-ink",
+      "tag": "footer",
+      "top": 8222,
+      "height": 632,
+      "words": 58,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "+62 821 2456 1534",
+       "size": 129,
+       "tag": "a"
+      },
+      "left": 40,
+      "right": 40,
+      "textLeft": 40,
+      "textRight": 40,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Software bisnis, dibuat di Indonesia",
+      "size": 76,
+      "top": 153,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 40,
+      "n": 12
+     },
+     {
+      "x": 524,
+      "n": 7
+     },
+     {
+      "x": 960,
+      "n": 5
+     },
+     {
+      "x": 385,
+      "n": 2
+     },
+     {
+      "x": 845,
+      "n": 2
+     },
+     {
+      "x": 64,
+      "n": 1
+     },
+     {
+      "x": 490,
+      "n": 1
+     },
+     {
+      "x": 916,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 31,
+    "bodySize": 19,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.1,
+    "voidBox": {
+     "x": 660,
+     "y": 120,
+     "w": 300,
+     "h": 420
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 11,
+   "filled": [
+    0.48,
+    0.9,
+    0.96,
+    0.82,
+    0.88,
+    0.9,
+    0.7,
+    0.69,
+    0.9,
+    1,
+    0.99
+   ],
+   "motion": {
+    "elements": 45,
+    "css": 0,
+    "transitions": 45,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 10317,
+     "screens": 10.1,
+     "words": 1022,
+     "img": 5,
+     "video": 0,
+     "canvas": 0,
+     "svg": 32,
+     "sections": 7,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 7,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 7,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 3,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Software bisnis, dibuat di Indonesia",
+     "words": 5,
+     "chars": 36,
+     "lines": 2,
+     "size": 64,
+     "vw": 8.3,
+     "font": "Albert Sans",
+     "weight": 600,
+     "tracking": -0.035,
+     "leading": 1,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.75,
+     "top": 164,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Software bisnis, dibuat di Indonesia",
+     "words": 5,
+     "lines": 2,
+     "size": 64,
+     "font": "Albert Sans"
+    },
+    "headings": [
+     {
+      "text": "Software bisnis, dibuat di Indonesia",
+      "words": 5,
+      "chars": 36,
+      "lines": 2,
+      "size": 64,
+      "vw": 8.3,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.75,
+      "top": 164,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Sistem yang kami buat",
+      "words": 4,
+      "chars": 21,
+      "lines": 1,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 1476,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Yang kami kerjakan",
+      "words": 3,
+      "chars": 18,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 4454,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Kata klien",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 5367,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Cara kami mulai",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 6185,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Pertanyaan",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 8413,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Ngobrol dengan Asemka",
+      "words": 3,
+      "chars": 21,
+      "lines": 1,
+      "size": 41.5,
+      "vw": 5.4,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 9073,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "WhatsApp: WhatsApp 0821 2456 1534",
+      "words": 5,
+      "chars": 33,
+      "lines": 2,
+      "size": 41.5,
+      "vw": 5.4,
+      "font": "Albert Sans",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 9169,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Email: sales@asemka.com",
+      "words": 2,
+      "chars": 23,
+      "lines": 2,
+      "size": 41.5,
+      "vw": 5.4,
+      "font": "Albert Sans",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 9265,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Kota: Jakarta, Indonesia",
+      "words": 3,
+      "chars": 24,
+      "lines": 2,
+      "size": 41.5,
+      "vw": 5.4,
+      "font": "Albert Sans",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 9361,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Jam kerja: Senin s.d. Jumat, 08.00 s.d. 17.00 WIB",
+      "words": 9,
+      "chars": 49,
+      "lines": 2,
+      "size": 41.5,
+      "vw": 5.4,
+      "font": "Albert Sans",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 9457,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Halo",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 41.5,
+      "vw": 5.4,
+      "font": "Albert Sans",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 9553,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "+62 821 2456 1534",
+      "words": 4,
+      "chars": 17,
+      "lines": 1,
+      "size": 72.5,
+      "vw": 9.4,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 10155,
+      "tag": "a",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 13,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 5,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Albert Sans",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      14,
+      16,
+      18,
+      19,
+      20,
+      23,
+      42,
+      48,
+      50,
+      64,
+      73
+     ],
+     "sizeCount": 11,
+     "notLoaded": [],
+     "body": {
+      "font": "Albert Sans",
+      "size": 17.9,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 16.4
+     },
+     "measureChars": 57,
+     "max": {
+      "size": 72.5,
+      "vw": 9.4,
+      "font": "Albert Sans",
+      "text": "+62 821 2456 1534"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.02,
+     "centerShare": 0.04,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f5f5f2",
+     "bodyBgHsl": {
+      "h": 60,
+      "s": 0.13,
+      "l": 0.95
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f5f5f2",
+       "top": 72,
+       "hsl": {
+        "h": 60,
+        "s": 0.13,
+        "l": 0.95
+       }
+      },
+      {
+       "color": "#fe3c00",
+       "top": 697,
+       "hsl": {
+        "h": 14,
+        "s": 1,
+        "l": 0.5
+       }
+      },
+      {
+       "color": "#fffefe",
+       "top": 753,
+       "hsl": {
+        "h": 0,
+        "s": 1,
+        "l": 1
+       }
+      },
+      {
+       "color": "#161717",
+       "top": 1380,
+       "hsl": {
+        "h": 180,
+        "s": 0.02,
+        "l": 0.09
+       }
+      },
+      {
+       "color": "#404040",
+       "top": 2578,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.25
+       }
+      },
+      {
+       "color": "#d43001",
+       "top": 5271,
+       "hsl": {
+        "h": 13,
+        "s": 0.99,
+        "l": 0.42
+       }
+      },
+      {
+       "color": "#065f54",
+       "top": 9073,
+       "hsl": {
+        "h": 173,
+        "s": 0.88,
+        "l": 0.2
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#161717",
+       "share": 0.33
+      },
+      {
+       "color": "#f5f5f2",
+       "share": 0.28
+      },
+      {
+       "color": "#fffefe",
+       "share": 0.18
+      },
+      {
+       "color": "#545553",
+       "share": 0.09
+      },
+      {
+       "color": "#a3a2a1",
+       "share": 0.08
+      }
+     ],
+     "button": {
+      "bg": "#161717",
+      "hsl": {
+       "h": 180,
+       "s": 0.02,
+       "l": 0.09
+      },
+      "fg": "#fffefe"
+     },
+     "lowContrast": [
+      {
+       "text": "Pengadaan dan persetujuan",
+       "ratio": 3.6,
+       "need": 4.5,
+       "size": 19,
+       "fg": "#fffefe",
+       "bg": "#fe3c00"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 19,
+     "inHero": 3,
+     "radius": 6,
+     "height": 34,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Langsung ke isi",
+      "Chat WhatsApp",
+      "Kirim lewat WhatsApp"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 4,
+     "boxRadius": 12,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 3,
+     "fixed": true,
+     "height": 72,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "albert sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 10317,
+    "margins": {
+     "left": 22,
+     "right": 22
+    },
+    "sections": [
+     {
+      "sel": "section.hero.field-paper",
+      "tag": "section",
+      "top": 72,
+      "height": 1308,
+      "words": 109,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Software bisnis,",
+       "size": 64,
+       "tag": "h1"
+      },
+      "left": 22,
+      "right": 43,
+      "textLeft": 22,
+      "textRight": 43,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "article.band.band-procurement",
+      "tag": "article",
+      "top": 1590,
+      "height": 941,
+      "words": 179,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Pengadaan dan persetujuan",
+       "size": 19,
+       "tag": "h3"
+      },
+      "left": 22,
+      "right": 0,
+      "textLeft": 22,
+      "textRight": 22,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "article.band.band-warehouse",
+      "tag": "article",
+      "top": 2530,
+      "height": 914,
+      "words": 167,
+      "media": 0,
+      "middle": 46,
+      "heading": {
+       "text": "Asemka Operation",
+       "size": 19,
+       "tag": "h3"
+      },
+      "left": 22,
+      "right": 11,
+      "textLeft": 22,
+      "textRight": 22,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "article.band.band-wholesale",
+      "tag": "article",
+      "top": 3444,
+      "height": 914,
+      "words": 143,
+      "media": 8,
+      "middle": 12,
+      "heading": {
+       "text": "Marketplace grosir",
+       "size": 19,
+       "tag": "h3"
+      },
+      "left": 22,
+      "right": 11,
+      "textLeft": 22,
+      "textRight": 27,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#services.services.field-ink",
+      "tag": "section",
+      "top": 4358,
+      "height": 913,
+      "words": 98,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Yang kami kerjakan",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 22,
+      "right": 54,
+      "textLeft": 22,
+      "textRight": 54,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.quotes.field-ember",
+      "tag": "section",
+      "top": 5271,
+      "height": 818,
+      "words": 79,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Kata klien",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 22,
+      "right": 61,
+      "textLeft": 22,
+      "textRight": 61,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#process.process.field-paper",
+      "tag": "section",
+      "top": 6089,
+      "height": 2228,
+      "words": 113,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Cara kami mulai",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 22,
+      "right": 192,
+      "textLeft": 22,
+      "textRight": 192,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq.faq.field-grey",
+      "tag": "section",
+      "top": 8317,
+      "height": 756,
+      "words": 147,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Pertanyaan",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 22,
+      "right": 245,
+      "textLeft": 22,
+      "textRight": 245,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#contact.contact.field-green",
+      "tag": "section",
+      "top": 9073,
+      "height": 576,
+      "words": 18,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Ngobrol dengan Asemka",
+       "size": 41,
+       "tag": "h2"
+      },
+      "left": 22,
+      "right": 75,
+      "textLeft": 22,
+      "textRight": 75,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.footer.field-ink",
+      "tag": "footer",
+      "top": 9649,
+      "height": 668,
+      "words": 58,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "+62 821 2456 1534",
+       "size": 73,
+       "tag": "a"
+      },
+      "left": 22,
+      "right": 22,
+      "textLeft": 22,
+      "textRight": 22,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Software bisnis, dibuat di Indonesia",
+      "size": 64,
+      "top": 164,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 22,
+      "n": 21
+     },
+     {
+      "x": 38,
+      "n": 10
+     }
+    ],
+    "leftBlocks": 31,
+    "bodySize": 18,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.57,
+    0.98,
+    0.98,
+    0.99,
+    0.92,
+    0.8,
+    0.98,
+    0.98,
+    0.63,
+    0.68,
+    0.91,
+    0.99
+   ],
+   "motion": {
+    "elements": 45,
+    "css": 0,
+    "transitions": 45,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 10836,
+     "screens": 12.8,
+     "words": 1021,
+     "img": 5,
+     "video": 0,
+     "canvas": 0,
+     "svg": 32,
+     "sections": 7,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 7,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 7,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 3,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Software bisnis, dibuat di Indonesia",
+     "words": 5,
+     "chars": 36,
+     "lines": 2,
+     "size": 34,
+     "vw": 8.7,
+     "font": "Albert Sans",
+     "weight": 600,
+     "tracking": -0.035,
+     "leading": 1,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.78,
+     "top": 148,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Software bisnis, dibuat di Indonesia",
+     "words": 5,
+     "lines": 2,
+     "size": 34,
+     "font": "Albert Sans"
+    },
+    "headings": [
+     {
+      "text": "Software bisnis, dibuat di Indonesia",
+      "words": 5,
+      "chars": 36,
+      "lines": 2,
+      "size": 34,
+      "vw": 8.7,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.78,
+      "top": 148,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Sistem yang kami buat",
+      "words": 4,
+      "chars": 21,
+      "lines": 2,
+      "size": 44,
+      "vw": 11.3,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 1524,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Yang kami kerjakan",
+      "words": 3,
+      "chars": 18,
+      "lines": 1,
+      "size": 35.1,
+      "vw": 9,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 4787,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Kata klien",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 35.1,
+      "vw": 9,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 6017,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Cara kami mulai",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 31.2,
+      "vw": 8,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.55,
+      "top": 6929,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "142",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Albert Sans",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.4,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.17,
+      "top": 8138,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "18",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Albert Sans",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.4,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.17,
+      "top": 8138,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "3",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Albert Sans",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.4,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.17,
+      "top": 8138,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "Pertanyaan",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 35.1,
+      "vw": 9,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 8725,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Ngobrol dengan Asemka",
+      "words": 3,
+      "chars": 21,
+      "lines": 1,
+      "size": 29.6,
+      "vw": 7.6,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 9396,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "WhatsApp: WhatsApp 0821 2456 1534",
+      "words": 5,
+      "chars": 33,
+      "lines": 1,
+      "size": 29.6,
+      "vw": 7.6,
+      "font": "Albert Sans",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 9480,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Email: sales@asemka.com",
+      "words": 2,
+      "chars": 23,
+      "lines": 1,
+      "size": 29.6,
+      "vw": 7.6,
+      "font": "Albert Sans",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 9564,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Kota: Jakarta, Indonesia",
+      "words": 3,
+      "chars": 24,
+      "lines": 1,
+      "size": 29.6,
+      "vw": 7.6,
+      "font": "Albert Sans",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 9648,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Jam kerja: Senin s.d. Jumat, 08.00 s.d. 17.00 WIB",
+      "words": 9,
+      "chars": 49,
+      "lines": 2,
+      "size": 29.6,
+      "vw": 7.6,
+      "font": "Albert Sans",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 9732,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Halo",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 29.6,
+      "vw": 7.6,
+      "font": "Albert Sans",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 9825,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "+62 821 2456 1534",
+      "words": 4,
+      "chars": 17,
+      "lines": 1,
+      "size": 44.5,
+      "vw": 11.4,
+      "font": "Albert Sans",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 10642,
+      "tag": "a",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 16,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 8,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Albert Sans",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      14,
+      16,
+      17,
+      19,
+      20,
+      30,
+      31,
+      34,
+      35,
+      44,
+      45
+     ],
+     "sizeCount": 11,
+     "notLoaded": [],
+     "body": {
+      "font": "Albert Sans",
+      "size": 17,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 16.4
+     },
+     "measureChars": 38,
+     "max": {
+      "size": 44.5,
+      "vw": 11.4,
+      "font": "Albert Sans",
+      "text": "+62 821 2456 1534"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.02,
+     "centerShare": 0.04,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f5f5f2",
+     "bodyBgHsl": {
+      "h": 60,
+      "s": 0.13,
+      "l": 0.95
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f5f5f2",
+       "top": 72,
+       "hsl": {
+        "h": 60,
+        "s": 0.13,
+        "l": 0.95
+       }
+      },
+      {
+       "color": "#fe3c00",
+       "top": 613,
+       "hsl": {
+        "h": 14,
+        "s": 1,
+        "l": 0.5
+       }
+      },
+      {
+       "color": "#fffefe",
+       "top": 669,
+       "hsl": {
+        "h": 0,
+        "s": 1,
+        "l": 1
+       }
+      },
+      {
+       "color": "#161717",
+       "top": 1428,
+       "hsl": {
+        "h": 180,
+        "s": 0.02,
+        "l": 0.09
+       }
+      },
+      {
+       "color": "#404040",
+       "top": 2807,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.25
+       }
+      },
+      {
+       "color": "#d43001",
+       "top": 5921,
+       "hsl": {
+        "h": 13,
+        "s": 0.99,
+        "l": 0.42
+       }
+      },
+      {
+       "color": "#065f54",
+       "top": 9396,
+       "hsl": {
+        "h": 173,
+        "s": 0.88,
+        "l": 0.2
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#161717",
+       "share": 0.33
+      },
+      {
+       "color": "#f5f5f2",
+       "share": 0.28
+      },
+      {
+       "color": "#fffefe",
+       "share": 0.18
+      },
+      {
+       "color": "#545553",
+       "share": 0.09
+      },
+      {
+       "color": "#a3a2a1",
+       "share": 0.08
+      }
+     ],
+     "button": {
+      "bg": "#161717",
+      "hsl": {
+       "h": 180,
+       "s": 0.02,
+       "l": 0.09
+      },
+      "fg": "#fffefe"
+     },
+     "lowContrast": [
+      {
+       "text": "Pengadaan dan persetujuan",
+       "ratio": 3.6,
+       "need": 4.5,
+       "size": 19,
+       "fg": "#fffefe",
+       "bg": "#fe3c00"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 19,
+     "inHero": 3,
+     "radius": 6,
+     "height": 34,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Langsung ke isi",
+      "WhatsApp",
+      "Kirim lewat WhatsApp"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 4,
+     "boxRadius": 12,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 3,
+     "fixed": true,
+     "height": 72,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "albert sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 10836,
+    "margins": {
+     "left": 16,
+     "right": 13
+    },
+    "sections": [
+     {
+      "sel": "div.hero-copy.frame",
+      "tag": "div",
+      "top": 72,
+      "height": 493,
+      "words": 39,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Software bisnis,",
+       "size": 34,
+       "tag": "h1"
+      },
+      "left": 16,
+      "right": 32,
+      "textLeft": 16,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.stage-wrap.is-in",
+      "tag": "div",
+      "top": 613,
+      "height": 815,
+      "words": 70,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 28,
+      "right": 40,
+      "textLeft": 32,
+      "textRight": 40,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "article.band.band-procurement",
+      "tag": "article",
+      "top": 1676,
+      "height": 1083,
+      "words": 128,
+      "media": 0,
+      "middle": 323,
+      "heading": {
+       "text": "Pengadaan dan persetujuan",
+       "size": 19,
+       "tag": "h3"
+      },
+      "left": 16,
+      "right": 0,
+      "textLeft": 16,
+      "textRight": 16,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "article.band.band-warehouse",
+      "tag": "article",
+      "top": 2759,
+      "height": 956,
+      "words": 128,
+      "media": 0,
+      "middle": 236,
+      "heading": {
+       "text": "Asemka Operation",
+       "size": 19,
+       "tag": "h3"
+      },
+      "left": 16,
+      "right": 0,
+      "textLeft": 16,
+      "textRight": 16,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "article.band.band-wholesale",
+      "tag": "article",
+      "top": 3715,
+      "height": 977,
+      "words": 109,
+      "media": 8,
+      "middle": 193,
+      "heading": {
+       "text": "Marketplace grosir",
+       "size": 19,
+       "tag": "h3"
+      },
+      "left": 16,
+      "right": 0,
+      "textLeft": 16,
+      "textRight": 16,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#services.services.field-ink",
+      "tag": "section",
+      "top": 4691,
+      "height": 1230,
+      "words": 98,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Yang kami kerjakan",
+       "size": 35,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 41,
+      "textLeft": 16,
+      "textRight": 41,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.quotes.field-ember",
+      "tag": "section",
+      "top": 5921,
+      "height": 912,
+      "words": 79,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Kata klien",
+       "size": 35,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 17,
+      "textLeft": 16,
+      "textRight": 17,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#process.process.field-paper",
+      "tag": "section",
+      "top": 6833,
+      "height": 1796,
+      "words": 113,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Cara kami mulai",
+       "size": 31,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 46,
+      "textLeft": 16,
+      "textRight": 46,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq.faq.field-grey",
+      "tag": "section",
+      "top": 8629,
+      "height": 767,
+      "words": 147,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Pertanyaan",
+       "size": 35,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 37,
+      "textLeft": 16,
+      "textRight": 37,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#contact.contact.field-green",
+      "tag": "section",
+      "top": 9396,
+      "height": 512,
+      "words": 18,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Ngobrol dengan Asemka",
+       "size": 30,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 25,
+      "textLeft": 16,
+      "textRight": 25,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.footer.field-ink",
+      "tag": "footer",
+      "top": 9908,
+      "height": 927,
+      "words": 58,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Di halaman ini",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 13,
+      "textLeft": 16,
+      "textRight": 13,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Software bisnis, dibuat di Indonesia",
+      "size": 34,
+      "top": 148,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 16,
+      "n": 21
+     },
+     {
+      "x": 32,
+      "n": 10
+     }
+    ],
+    "leftBlocks": 31,
+    "bodySize": 17,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "no-real-pictures",
+   "width": 1440,
+   "message": "Only 0 real photograph(s) or clip(s); the rest are interface fragments.",
+   "fix": "Add two or more real pictures of the customer's world from scripts/assets.mjs, not stock of people at laptops."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "contrast",
+   "width": 768,
+   "message": "Low-contrast text: \"Pengadaan dan persetujuan\" 3.6:1 needs 4.5:1",
+   "fix": "Darken or lighten the text colour.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 768,
+   "message": "11 different font sizes (14, 16, 18, 19, 20, 23, 42, 48, 50, 64, 73).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "side-scroll",
+   "width": 768,
+   "message": "3 row(s) scroll sideways with content past their edge.",
+   "fix": "Jurors and most visitors read a row cut at the edge as clipped, not as scrollable. Wrap it onto more lines, or end it inside the grid.",
+   "alsoAt": [
+    390
+   ]
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/anzarsyahid/Herd/asemka/.taste-skill/inspect-id/desktop-fold.jpg",
+   "pages": [
+    "/Users/anzarsyahid/Herd/asemka/.taste-skill/inspect-id/desktop-page-01.jpg",
+    "/Users/anzarsyahid/Herd/asemka/.taste-skill/inspect-id/desktop-page-02.jpg",
+    "/Users/anzarsyahid/Herd/asemka/.taste-skill/inspect-id/desktop-page-03.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/Users/anzarsyahid/Herd/asemka/.taste-skill/inspect-id/tablet-fold.jpg",
+   "pages": [
+    "/Users/anzarsyahid/Herd/asemka/.taste-skill/inspect-id/tablet-page-01.jpg",
+    "/Users/anzarsyahid/Herd/asemka/.taste-skill/inspect-id/tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/Users/anzarsyahid/Herd/asemka/.taste-skill/inspect-id/mobile-fold.jpg",
+   "pages": [
+    "/Users/anzarsyahid/Herd/asemka/.taste-skill/inspect-id/mobile-page-01.jpg",
+    "/Users/anzarsyahid/Herd/asemka/.taste-skill/inspect-id/mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

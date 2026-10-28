@@ -1,0 +1,612 @@
+---
+import type { Dict } from '../i18n/types';
+import { waLink } from '../i18n/site';
+
+interface Props {
+  dict: Dict;
+}
+
+const { dict } = Astro.props;
+const c = dict.hero.composer;
+const defaults = { need: c.need[0], stage: c.stage[0], when: c.when[1] };
+const fill = (t: string, name = '') =>
+  t.replace('{name}', name).replace('{need}', defaults.need.phrase).replace('{stage}', defaults.stage.phrase).replace('{when}', defaults.when.phrase);
+const defaultMessage = fill(c.template);
+const config = JSON.stringify({
+  template: c.template,
+  templateWithName: c.templateWithName,
+  phrases: Object.fromEntries([...c.need, ...c.stage, ...c.when].map((x) => [x.id, x.phrase])),
+});
+const groups = [
+  { key: 'need', legend: c.groups.need, items: c.need, checked: defaults.need.id },
+  { key: 'stage', legend: c.groups.stage, items: c.stage, checked: defaults.stage.id },
+  { key: 'when', legend: c.groups.when, items: c.when, checked: defaults.when.id },
+] as const;
+---
+
+<section class="hero field-paper" aria-labelledby="hero-title">
+  <div class="hero-copy frame" data-stagger>
+    <h1 id="hero-title" data-reveal><span>{dict.hero.title[0]}</span> <span>{dict.hero.title[1]}</span></h1>
+    <p class="lead" data-reveal>{dict.hero.lead}</p>
+    <a class="button cta" href={waLink(defaultMessage)} data-wa-link data-reveal rel="noopener" target="_blank">
+      {dict.hero.cta}
+      <svg viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z" /></svg>
+    </a>
+    <ul class="promises" data-reveal>
+      {
+        dict.hero.promises.map((p) => (
+          <li>
+            <svg viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M229.66 77.66l-128 128a8 8 0 0 1-11.32 0l-56-56a8 8 0 0 1 11.32-11.32L96 188.69 218.34 66.34a8 8 0 0 1 11.32 11.32Z" /></svg>
+            {p}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <svg class="bag" viewBox="0 80 380 290" aria-hidden="true">
+    <g class="bag-float">
+      <path class="bag-sheet" d="M14 155 52 142 102 325 87 348Z" />
+      <path class="bag-front" d="M85 97h282v198l-245 65Z" />
+      <path class="bag-handle-shade" d="M184 134l7 58q5 52 59 52t59-52l-7-58" />
+      <path class="bag-handle" d="M180 128l7 58q5 52 59 52t59-52l-7-58" />
+    </g>
+  </svg>
+
+  <div class="stage-wrap" data-shutter>
+    <div class="stage field-orange">
+      <form class="composer" data-ui data-composer={config} aria-label={c.label} onsubmit="return false">
+        <div class="choices">
+          {
+            groups.map((g) => (
+              <fieldset>
+                <legend>{g.legend}</legend>
+                <div class="chips">
+                  {g.items.map((item) => (
+                    <label class="chip">
+                      <input type="radio" name={g.key} value={item.id} checked={item.id === g.checked} />
+                      <span>{item.label}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+            ))
+          }
+        </div>
+
+        <div class="chat-top">
+          <div class="chat-head">
+            <img src="/images/icon.png" alt="" width="40" height="40" />
+            <div>
+              <p class="chat-name">{c.contactName}</p>
+              <p class="chat-status">{c.status}</p>
+            </div>
+          </div>
+          <div class="chat-body">
+            <p class="bubble">
+              <span data-message aria-live="polite">{defaultMessage}</span>
+              <span class="bubble-meta" aria-hidden="true"><time data-time>09.41</time><svg viewBox="0 0 18 11" width="18" height="11"><path d="M1 6l3 3 6-7M7 8.5l1 .5 6-7" fill="none" stroke="#2c8fd6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="chat-foot">
+          <label class="name">
+            <span class="sr-only">{c.nameLabel}</span>
+            <input type="text" name="name" autocomplete="given-name" maxlength="40" placeholder={`${c.nameLabel} (${c.namePlaceholder.toLowerCase()})`} />
+          </label>
+          <a class="send" href={waLink(defaultMessage)} data-wa-link aria-label={c.send} rel="noopener" target="_blank">
+            <svg viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M231.87 114l-168-95.89A16 16 0 0 0 40.92 37.34L71.55 128l-30.63 90.66A16 16 0 0 0 56 240a16.15 16.15 0 0 0 7.93-2.1l167.92-96.05a16 16 0 0 0 .05-27.89ZM56 224a.56.56 0 0 0 0-.12L85.74 136H144a8 8 0 0 0 0-16H85.74L56.06 32.16A.46.46 0 0 0 56 32l168 95.83Z" /></svg>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { WA_NUMBER } from '../i18n/site';
+
+  const form = document.querySelector<HTMLFormElement>('[data-composer]');
+  if (form) {
+    const cfg = JSON.parse(form.dataset.composer!) as { template: string; templateWithName: string; phrases: Record<string, string> };
+    const out = form.querySelector<HTMLElement>('[data-message]')!;
+    const links = document.querySelectorAll<HTMLAnchorElement>('[data-wa-link]');
+    const time = form.querySelector<HTMLTimeElement>('[data-time]');
+
+    if (time) {
+      const now = new Date();
+      const wib = new Intl.DateTimeFormat('id-ID', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Jakarta' }).format(now);
+      time.textContent = wib;
+    }
+
+    const build = () => {
+      const data = new FormData(form);
+      const name = String(data.get('name') || '').trim();
+      const pick = (k: string) => cfg.phrases[String(data.get(k))] ?? '';
+      const text = (name ? cfg.templateWithName : cfg.template)
+        .replace('{name}', name)
+        .replace('{need}', pick('need'))
+        .replace('{stage}', pick('stage'))
+        .replace('{when}', pick('when'));
+      if (out.textContent !== text) {
+        out.textContent = text;
+        out.parentElement!.classList.remove('is-new');
+        void out.parentElement!.offsetWidth;
+        out.parentElement!.classList.add('is-new');
+      }
+      const href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+      links.forEach((a) => (a.href = href));
+    };
+
+    form.addEventListener('change', build);
+    form.addEventListener('input', build);
+  }
+
+</script>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: max(calc(100svh - var(--nav-h)), 820px);
+    overflow: hidden;
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 1;
+    padding-top: clamp(48px, 9vh, 96px);
+    padding-bottom: 64px;
+  }
+
+  h1 {
+    max-width: 14ch;
+    font-size: clamp(2.25rem, 0.6rem + 5vw, 4.75rem);
+  }
+
+  h1 span {
+    display: block;
+  }
+
+  .lead {
+    max-width: 34ch;
+    margin-top: 32px;
+    font-size: var(--step-body);
+    line-height: 1.5;
+  }
+
+  .promises {
+    display: grid;
+    gap: 12px;
+    max-width: 32ch;
+    margin-top: 48px;
+  }
+
+  .promises li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+  }
+
+  .promises svg {
+    flex: none;
+    width: 28px;
+    height: 28px;
+    padding: 6px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: #fff;
+  }
+
+  /* the Asemka bag, drawn from the logo, top right above the stage */
+  .bag {
+    position: absolute;
+    top: clamp(16px, 3vh, 40px);
+    right: var(--m);
+    width: min(400px, 28vw);
+    height: auto;
+    overflow: visible;
+  }
+
+  .bag-front,
+  .bag-sheet {
+    fill: var(--orange);
+  }
+
+  .bag-handle,
+  .bag-handle-shade {
+    fill: none;
+    stroke-width: 20;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .bag-handle {
+    stroke: #fff;
+  }
+
+  .bag-handle-shade {
+    stroke: #c42e00;
+  }
+
+  .bag-float {
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+  }
+
+  .bag-sheet {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .bag-float {
+      animation: bag-float 7s var(--ease-in-out) infinite alternate;
+    }
+
+    .bag-sheet {
+      animation: bag-sway 4.2s var(--ease-in-out) infinite alternate;
+    }
+
+    @keyframes bag-float {
+      from {
+        transform: translateY(-6px) rotate(-1deg);
+      }
+      to {
+        transform: translateY(8px) rotate(1.5deg);
+      }
+    }
+
+    @keyframes bag-sway {
+      from {
+        transform: rotate(-7deg);
+      }
+      to {
+        transform: rotate(5deg);
+      }
+    }
+  }
+
+  .cta {
+    margin-top: 32px;
+    --btn-bg: var(--ink);
+    --btn-fg: var(--paper);
+    --btn-hover: var(--grey);
+  }
+
+  /* the stage: columns 5–12, from 42% down, bleeding off the right and bottom */
+  .stage-wrap {
+    position: absolute;
+    top: 42%;
+    right: 0;
+    bottom: 0;
+    left: calc(var(--m) + (100% - 2 * var(--m) + var(--gutter)) / 12 * 4);
+  }
+
+  .stage {
+    --tab: calc((100vw - 2 * var(--m) + var(--gutter)) / 12 * 2);
+    height: 100%;
+    padding: 96px 0 0 56px;
+    /* the corner is cut as a folder tab, the shape of the sheet behind the Asemka bag */
+    clip-path: polygon(0 0, var(--tab) 0, calc(var(--tab) + 40px) 40px, 100% 40px, 100% 100%, 0 100%);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :global(.js) .stage-wrap {
+      clip-path: inset(100% 0 0 0);
+      transition: clip-path var(--t-open) var(--ease-in-out);
+    }
+
+    :global(.js) .stage-wrap .composer {
+      transform: translateY(48px) scale(1.04);
+      transform-origin: left top;
+      transition: transform 1500ms var(--ease-soft);
+    }
+
+    :global(.js) .stage-wrap:global(.is-in) {
+      clip-path: inset(0);
+    }
+
+    :global(.js) .stage-wrap:global(.is-in) .composer {
+      transform: none;
+    }
+  }
+
+  /* the composer: a working piece of interface, its own conventions inside data-ui */
+  .composer {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+    grid-template-areas:
+      'choices top'
+      'choices foot';
+    grid-template-rows: 1fr auto;
+    width: min(880px, 100% - 56px);
+    background: #fff;
+    color: #161616;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .choices {
+    grid-area: choices;
+    display: grid;
+    gap: 20px;
+    padding: 24px;
+  }
+
+  fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  legend {
+    padding: 0;
+    margin-bottom: 8px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .chip {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .chip input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .chip span {
+    display: block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #efefec;
+    font-size: 0.9375rem;
+    line-height: 1.35;
+    transition:
+      background-color var(--t-hover) var(--ease-out),
+      color var(--t-hover) var(--ease-out),
+      transform var(--t-press) var(--ease-out);
+  }
+
+  .chip:active span {
+    transform: scale(0.97);
+  }
+
+  .chip input:checked + span {
+    background: #161616;
+    color: #fff;
+  }
+
+  .chip input:focus-visible + span {
+    outline: 3px solid var(--orange-strong);
+    outline-offset: 2px;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .chip:hover input:not(:checked) + span {
+      background: #e0e0dc;
+    }
+  }
+
+  .chat-top {
+    grid-area: top;
+    display: flex;
+    flex-direction: column;
+    background: #efeae2;
+  }
+
+  .chat-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--green);
+    color: #fff;
+  }
+
+  .chat-head img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    object-fit: contain;
+    padding: 4px;
+  }
+
+  .chat-name {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .chat-status {
+    font-size: 0.875rem;
+    line-height: 1.3;
+    color: #d6ece8;
+  }
+
+  .chat-body {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 24px 16px 12px 40px;
+  }
+
+  .bubble {
+    position: relative;
+    max-width: 34ch;
+    padding: 10px 12px 8px;
+    border-radius: 10px 0 10px 10px;
+    background: var(--wa-bubble);
+    font-size: 0.9375rem;
+    line-height: 1.45;
+  }
+
+  .bubble::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -8px;
+    border-top: 10px solid var(--wa-bubble);
+    border-right: 8px solid transparent;
+  }
+
+  .bubble-meta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    margin-top: 2px;
+    text-align: right;
+    font-size: 0.8125rem;
+    color: #3b6b64;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .bubble:global(.is-new) {
+      animation: bubble 420ms var(--ease-out);
+    }
+
+    @keyframes bubble {
+      from {
+        opacity: 0.4;
+        transform: translateY(6px);
+      }
+    }
+  }
+
+  .chat-foot {
+    grid-area: foot;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px 12px;
+    background: #efeae2;
+  }
+
+  .name {
+    flex: 1;
+  }
+
+  .name input {
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 18px;
+    border: 0;
+    border-radius: 999px;
+    background: #fff;
+    font-size: 1rem;
+  }
+
+  .name input::placeholder {
+    color: #6b6b68;
+  }
+
+  .name input:focus-visible {
+    outline: 3px solid var(--green);
+    outline-offset: 1px;
+  }
+
+  .send {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #00805e;
+    color: #fff;
+    transition:
+      transform var(--t-press) var(--ease-out),
+      background-color var(--t-hover) var(--ease-out);
+  }
+
+  .send svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .send:active {
+    transform: scale(0.94);
+  }
+
+  .send:focus-visible {
+    outline: 3px solid var(--green);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .send:hover {
+      background: var(--green);
+    }
+  }
+
+  /* phone and tablet: the stage follows the copy at full width */
+  @media (max-width: 1023px) {
+    .bag {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .hero {
+      min-height: 0;
+    }
+
+    .hero-copy {
+      padding-bottom: 0;
+    }
+
+    .promises {
+      margin-top: 32px;
+    }
+
+    h1 {
+      font-size: clamp(2.125rem, 8.6vw, 4rem);
+    }
+
+    .stage-wrap {
+      position: relative;
+      inset: auto;
+      margin-top: 48px;
+    }
+
+    .stage {
+      --tab: 72px;
+      padding: 56px 16px 0;
+      height: auto;
+    }
+
+    .composer {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-template-areas: 'top' 'choices' 'foot';
+      width: 100%;
+      border-radius: 14px 14px 0 0;
+    }
+
+    .chat-body {
+      padding: 16px 12px 16px 32px;
+    }
+
+    .choices {
+      padding: 20px 16px;
+    }
+
+    .chat-foot {
+      padding-bottom: 24px;
+    }
+  }
+</style>

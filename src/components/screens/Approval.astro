@@ -1,0 +1,304 @@
+---
+// Procurement approval queue, rebuilt in HTML with sample data and no client names.
+// Interactive: approve your requests, switch between your queue and every branch.
+const rows = [
+  { no: 'PR/2026/0418', branch: 'Cabang Surabaya', item: 'Kursi kantor, 24 unit', amount: 'Rp 18.720.000', level: 2, of: 3, mine: true },
+  { no: 'PR/2026/0417', branch: 'Cabang Medan', item: 'Laptop, 6 unit', amount: 'Rp 71.400.000', level: 3, of: 3, mine: true },
+  { no: 'PR/2026/0415', branch: 'Kantor pusat', item: 'Toner printer, 15 pcs', amount: 'Rp 4.365.000', level: 1, of: 2, mine: true },
+  { no: 'PR/2026/0412', branch: 'Cabang Makassar', item: 'Servis forklift', amount: 'Rp 12.900.000', level: 2, of: 3, mine: false },
+  { no: 'PR/2026/0409', branch: 'Cabang Bandung', item: 'ATK kuartal 4', amount: 'Rp 2.184.500', level: 1, of: 2, mine: false },
+  { no: 'PR/2026/0406', branch: 'Cabang Semarang', item: 'AC split 2 PK, 3 unit', amount: 'Rp 19.350.000', level: 2, of: 3, mine: false },
+];
+---
+
+<div class="screen" data-ui data-approval>
+  <div class="top">
+    <p class="title">Permintaan pembelian</p>
+    <p class="sync"><span class="dot"></span><span data-sync>Tersinkron ke Oracle Financials, 2 menit lalu</span></p>
+  </div>
+  <div class="tabs" role="group" aria-label="Filter">
+    <button type="button" data-filter="mine" aria-pressed="false">Menunggu saya <b data-count>3</b></button>
+    <button type="button" data-filter="all" aria-pressed="true">Semua cabang <b>128</b></button>
+  </div>
+  <table>
+    <thead>
+      <tr><th>No. PR</th><th>Cabang</th><th>Barang</th><th class="r">Nominal</th><th>Persetujuan</th><th class="r">Aksi</th></tr>
+    </thead>
+    <tbody>
+      {
+        rows.map((r) => (
+          <tr data-mine={r.mine ? 'true' : undefined} data-level={r.level} data-of={r.of} data-no={r.no}>
+            <td class="no">{r.no}</td>
+            <td>{r.branch}</td>
+            <td>{r.item}</td>
+            <td class="r num">{r.amount}</td>
+            <td>
+              <span class="lvl" data-lvl>
+                Level {r.level} dari {r.of}
+              </span>
+            </td>
+            <td class="r">
+              {r.mine ? (
+                <button type="button" class="act" data-approve>
+                  Setujui
+                </button>
+              ) : (
+                <span class="wait">Menunggu</span>
+              )}
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+  <p class="toast" role="status" aria-live="polite" data-toast></p>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-approval]').forEach((root) => {
+    const toast = root.querySelector<HTMLElement>('[data-toast]')!;
+    const count = root.querySelector<HTMLElement>('[data-count]')!;
+    const sync = root.querySelector<HTMLElement>('[data-sync]')!;
+    let timer = 0;
+    const say = (text: string) => {
+      toast.textContent = text;
+      toast.classList.add('is-on');
+      clearTimeout(timer);
+      timer = window.setTimeout(() => toast.classList.remove('is-on'), 2600);
+    };
+    const pending = () => root.querySelectorAll('tr[data-mine] [data-approve]').length;
+
+    root.querySelectorAll<HTMLButtonElement>('[data-approve]').forEach((btn) =>
+      btn.addEventListener('click', () => {
+        const row = btn.closest('tr')!;
+        const level = Number(row.dataset.level);
+        const of = Number(row.dataset.of);
+        const lvl = row.querySelector<HTMLElement>('[data-lvl]')!;
+        const done = document.createElement('span');
+        done.className = 'done';
+        if (level < of) {
+          lvl.textContent = `Level ${level + 1} dari ${of}`;
+          done.textContent = 'Diteruskan';
+          say(`${row.dataset.no} disetujui, diteruskan ke level ${level + 1}.`);
+        } else {
+          lvl.textContent = 'Disetujui';
+          lvl.classList.add('ok');
+          done.textContent = 'Selesai';
+          sync.textContent = 'Tersinkron ke Oracle Financials, baru saja';
+          say(`${row.dataset.no} disetujui penuh dan dikirim ke Oracle Financials.`);
+        }
+        row.classList.add('is-done');
+        btn.replaceWith(done);
+        count.textContent = String(pending());
+      }),
+    );
+
+    root.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach((tab) =>
+      tab.addEventListener('click', () => {
+        const mineOnly = tab.dataset.filter === 'mine';
+        root.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach((t) => t.setAttribute('aria-pressed', String(t === tab)));
+        root.querySelectorAll<HTMLTableRowElement>('tbody tr').forEach((tr) => {
+          tr.hidden = mineOnly && !(tr.dataset.mine && tr.querySelector('[data-approve]'));
+        });
+      }),
+    );
+  });
+</script>
+
+<style>
+  .screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    color: #161616;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    overflow: hidden;
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 20px 24px 12px;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  .sync {
+    color: #555552;
+    font-size: 0.8125rem;
+    white-space: nowrap;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background: #1f9d55;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 4px;
+    padding: 0 20px 12px;
+  }
+
+  button {
+    font: inherit;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .tabs button {
+    min-height: 36px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: transparent;
+    color: #555552;
+    white-space: nowrap;
+    transition: background-color 200ms var(--ease-out);
+  }
+
+  .tabs button[aria-pressed='true'] {
+    background: #161616;
+    color: #fff;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .tabs button[aria-pressed='false']:hover {
+      background: #f1f1ee;
+    }
+  }
+
+  .tabs b {
+    font-weight: 600;
+    margin-left: 4px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+  }
+
+  th {
+    padding: 8px 12px;
+    background: #f4f4f2;
+    color: #555552;
+    font-weight: 500;
+    font-size: 0.8125rem;
+    text-align: left;
+  }
+
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #ececea;
+    transition: background-color 400ms var(--ease-out);
+  }
+
+  th:first-child,
+  td:first-child {
+    padding-left: 24px;
+  }
+
+  th:last-child,
+  td:last-child {
+    padding-right: 24px;
+  }
+
+  .r {
+    text-align: right;
+  }
+
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .no {
+    font-weight: 600;
+  }
+
+  .lvl {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #f1f1ee;
+    font-size: 0.8125rem;
+  }
+
+  tr[data-mine] .lvl {
+    background: #ffe3d8;
+    color: #8a2200;
+  }
+
+  .is-done td {
+    background: #f3faf5;
+  }
+
+  tr .lvl:global(.ok) {
+    background: #dff3e6;
+    color: #145a32;
+  }
+
+  .act {
+    min-height: 32px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    background: #161616;
+    color: #fff;
+    font-weight: 600;
+    transition:
+      transform 140ms var(--ease-out),
+      background-color 200ms var(--ease-out);
+  }
+
+  .act:active {
+    transform: scale(0.96);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .act:hover {
+      background: #c23000;
+    }
+  }
+
+  .wait,
+  td :global(.done) {
+    color: #555552;
+  }
+
+  td :global(.done) {
+    font-weight: 600;
+    color: #145a32;
+  }
+
+  .toast {
+    position: absolute;
+    left: 24px;
+    bottom: 16px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #161616;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+      opacity 240ms var(--ease-out),
+      transform 240ms var(--ease-out);
+    pointer-events: none;
+  }
+
+  .toast:global(.is-on) {
+    opacity: 1;
+    transform: none;
+  }
+</style>

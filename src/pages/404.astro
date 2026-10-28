@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import en from '../i18n/en';
+import { waLink } from '../i18n/site';
+---
+
+<Base dict={en} title="Page not found · Asemka" description="This page does not exist." alternates={false} noindex>
+  <main id="main" class="nf field-ember frame">
+    <a href="/" class="mark"><img src="/images/logo.png" alt="Asemka" width="1773" height="423" /></a>
+    <div>
+      <h1>This page is not here</h1>
+      <p lang="id">Halaman ini tidak ditemukan.</p>
+      <p class="actions">
+        <a class="button" href="/">Back to the homepage</a>
+        <a class="link" href={waLink('Hi Asemka. I followed a broken link on your site.')} rel="noopener" target="_blank">Tell us on WhatsApp</a>
+      </p>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .nf {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100svh;
+    padding-block: 28px 80px;
+  }
+
+  .mark img {
+    width: auto;
+    height: 34px;
+  }
+
+  h1 {
+    max-width: 12ch;
+    font-size: var(--step-poster);
+  }
+
+  p {
+    margin-top: 24px;
+    font-size: var(--step-lead);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+    margin-top: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+</style>

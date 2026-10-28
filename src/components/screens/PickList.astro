@@ -1,0 +1,330 @@
+---
+// Asemka Operation pick list, rebuilt in HTML with sample data.
+// Interactive: tick items as they are picked; the order moves to packing when all are done.
+const items = [
+  { sku: 'LKB-48', name: 'Lakban bening 48 mm', bin: 'Rak B-04', qty: '12 roll', done: true },
+  { sku: 'KRD-30', name: 'Kardus 30 x 30 x 30', bin: 'Rak A-11', qty: '40 pcs', done: true },
+  { sku: 'BBW-02', name: 'Bubble wrap 50 cm', bin: 'Rak A-02', qty: '3 roll', done: true },
+  { sku: 'STK-A6', name: 'Stiker label A6', bin: 'Rak C-07', qty: '2 pak', done: true },
+  { sku: 'PLS-25', name: 'Plastik polymailer 25 x 35', bin: 'Rak C-01', qty: '200 pcs', done: false },
+  { sku: 'TLI-05', name: 'Tali rafia 5 kg', bin: 'Rak D-03', qty: '1 gulung', done: false },
+  { sku: 'SRT-01', name: 'Sarung tangan kerja', bin: 'Rak D-09', qty: '24 psg', done: false },
+];
+const done = items.filter((i) => i.done).length;
+---
+
+<div class="screen" data-ui data-picklist>
+  <aside>
+    <img src="/images/icon.png" alt="" width="28" height="28" />
+    <p class="app">Asemka Operation</p>
+    <ul>
+      <li>Penerimaan</li>
+      <li class="on">Pengambilan</li>
+      <li>Packing</li>
+      <li>Pengiriman</li>
+      <li>Stok</li>
+    </ul>
+    <p class="wh">Gudang Cikarang</p>
+  </aside>
+  <div class="main">
+    <div class="head">
+      <div>
+        <p class="title">Ambil pesanan SO/88213</p>
+        <p class="sub">PT Kurnia Niaga, kirim hari ini 16.00</p>
+      </div>
+      <p class="count"><b data-done>{done}</b> dari {items.length} item</p>
+    </div>
+    <div class="bar"><span data-bar style={`transform: scaleX(${done / items.length})`}></span></div>
+    <ol>
+      {
+        items.map((i) => (
+          <li>
+            <label>
+              <input type="checkbox" checked={i.done} />
+              <span class="box" aria-hidden="true">
+                <svg viewBox="0 0 12 10" width="12" height="10">
+                  <path d="M1 5l3.5 3.5L11 1.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span class="name">
+                {i.name}
+                <small>{i.sku}</small>
+              </span>
+              <span class="bin">{i.bin}</span>
+              <span class="qty">{i.qty}</span>
+            </label>
+          </li>
+        ))
+      }
+    </ol>
+    <div class="foot">
+      <p class="alert"><b>Stok menipis</b> Polymailer 25 x 35, sisa 260 pcs.</p>
+      <button type="button" class="next" data-next disabled>Lanjut ke packing</button>
+    </div>
+    <p class="toast" role="status" aria-live="polite" data-toast></p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-picklist]').forEach((root) => {
+    const boxes = [...root.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')];
+    const done = root.querySelector<HTMLElement>('[data-done]')!;
+    const bar = root.querySelector<HTMLElement>('[data-bar]')!;
+    const next = root.querySelector<HTMLButtonElement>('[data-next]')!;
+    const toast = root.querySelector<HTMLElement>('[data-toast]')!;
+    let timer = 0;
+    const update = () => {
+      const n = boxes.filter((b) => b.checked).length;
+      done.textContent = String(n);
+      bar.style.transform = `scaleX(${n / boxes.length})`;
+      next.disabled = n < boxes.length;
+    };
+    boxes.forEach((b) => b.addEventListener('change', update));
+    next.addEventListener('click', () => {
+      toast.textContent = 'SO/88213 masuk antrean packing, meja 2.';
+      toast.classList.add('is-on');
+      clearTimeout(timer);
+      timer = window.setTimeout(() => toast.classList.remove('is-on'), 2600);
+      next.textContent = 'Di antrean packing';
+      next.disabled = true;
+    });
+    update();
+  });
+</script>
+
+<style>
+  .screen {
+    display: grid;
+    grid-template-columns: 176px 1fr;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    color: #161616;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    overflow: hidden;
+  }
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 20px 12px;
+    background: #161616;
+    color: #d8d8d4;
+  }
+
+  aside img {
+    width: 28px;
+    height: 28px;
+    margin-left: 8px;
+    border-radius: 6px;
+    background: #fff;
+    padding: 2px;
+  }
+
+  .app {
+    margin: 8px 8px 16px;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  aside li {
+    padding: 8px;
+    border-radius: 6px;
+  }
+
+  aside .on {
+    background: #d43100;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .wh {
+    margin: auto 8px 0;
+    font-size: 0.8125rem;
+    color: #a3a3a0;
+  }
+
+  .main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 24px 16px;
+    min-width: 0;
+  }
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  .sub,
+  small {
+    color: #555552;
+    font-size: 0.8125rem;
+  }
+
+  .count {
+    white-space: nowrap;
+  }
+
+  .count b {
+    font-size: 1.25rem;
+  }
+
+  .bar {
+    height: 6px;
+    margin: 12px 0 4px;
+    border-radius: 3px;
+    background: #efefec;
+    overflow: hidden;
+  }
+
+  .bar span {
+    display: block;
+    height: 100%;
+    background: #ff3d00;
+    transform-origin: left;
+    transition: transform 400ms var(--ease-out);
+  }
+
+  label {
+    position: relative;
+    display: grid;
+    grid-template-columns: 24px 1fr 88px 72px;
+    align-items: center;
+    gap: 12px;
+    padding: 7px 0;
+    border-bottom: 1px solid #ececea; /* taste-skill-ignore: rows of a real list inside a data-ui fragment */
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  input {
+    position: absolute;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .box {
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #c9c9c5;
+    border-radius: 5px;
+    color: transparent;
+    transition:
+      background-color 160ms var(--ease-out),
+      border-color 160ms var(--ease-out);
+  }
+
+  input:checked + .box {
+    border-color: #161616;
+    background: #161616;
+    color: #fff;
+  }
+
+  input:focus-visible + .box {
+    outline: 3px solid #ff3d00;
+    outline-offset: 2px;
+  }
+
+  input:checked ~ .name {
+    color: #6b6b68;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    label:hover .box {
+      border-color: #161616;
+    }
+  }
+
+  .name small {
+    margin-left: 8px;
+  }
+
+  .bin {
+    font-weight: 600;
+  }
+
+  .qty {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .foot {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .alert {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: #ffe3d8;
+    color: #5c1700;
+    white-space: nowrap;
+  }
+
+  .alert b {
+    margin-right: 6px;
+  }
+
+  .next {
+    min-height: 36px;
+    padding: 8px 14px;
+    border: 0;
+    border-radius: 6px;
+    background: #161616;
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 200ms var(--ease-out);
+  }
+
+  .next:disabled {
+    background: #e6e6e2;
+    color: #555552;
+    cursor: not-allowed;
+  }
+
+  .toast {
+    position: absolute;
+    left: 24px;
+    bottom: 64px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #161616;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+      opacity 240ms var(--ease-out),
+      transform 240ms var(--ease-out);
+    pointer-events: none;
+  }
+
+  .toast:global(.is-on) {
+    opacity: 1;
+    transform: none;
+  }
+</style>

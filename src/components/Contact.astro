@@ -1,0 +1,119 @@
+---
+import type { Dict } from '../i18n/types';
+import { waLink } from '../i18n/site';
+
+interface Props {
+  dict: Dict;
+}
+
+const { dict } = Astro.props;
+const c = dict.contact;
+const hello = dict.lang === 'id' ? 'Halo Asemka. Bisa kita ngobrol soal proyek?' : 'Hi Asemka. Can we talk about a project?';
+---
+
+<section id="contact" class="contact field-green" aria-labelledby="contact-title">
+  <div data-stagger>
+    <h2 id="contact-title" class="row frame" data-reveal>{c.heading}</h2>
+    {
+      c.rows.map((r) => (
+        <p class="row frame" data-reveal>
+          <span class="sr-only">{r.label}: </span>
+          {r.href ? (
+            <a class="link" href={r.href} rel={r.href.startsWith('http') ? 'noopener' : undefined} target={r.href.startsWith('http') ? '_blank' : undefined}>
+              {r.value}
+            </a>
+          ) : (
+            r.value
+          )}
+        </p>
+      ))
+    }
+    <p class="row greet frame" data-reveal>
+      <span>{c.greeting}</span>
+      <a class="go" href={waLink(hello)} aria-label={c.greetingAction} rel="noopener" target="_blank">
+        <svg viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z" /></svg>
+      </a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .row {
+    display: flex;
+    align-items: flex-end;
+    min-height: clamp(96px, 10.5vw, 150px);
+    padding-bottom: 0.32em;
+    font-size: min(var(--step-display), 5.4vw);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+  }
+
+  .row:nth-child(even) {
+    background: var(--step);
+  }
+
+  h2.row {
+    font-weight: 600;
+  }
+
+  .row .link {
+    text-decoration-thickness: 0.05em;
+  }
+
+  .row.greet {
+    align-items: center;
+    gap: 24px;
+    padding-bottom: 0;
+    background: var(--ember);
+    color: #fff;
+  }
+
+  .go {
+    display: grid;
+    place-items: center;
+    width: 0.9em;
+    height: 0.9em;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    transition: transform var(--t-ui) var(--ease-out);
+  }
+
+  .go svg {
+    width: 45%;
+    height: 45%;
+  }
+
+  .go:active {
+    transform: scale(0.94);
+  }
+
+  .go:focus-visible {
+    outline-color: var(--ink);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .go:hover {
+      transform: translateX(6px);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .row {
+      min-height: 84px;
+      font-size: 7.6vw;
+      padding-block: 16px;
+      align-items: center;
+    }
+
+    .greet {
+      justify-content: space-between;
+    }
+
+    .go {
+      width: 56px;
+      height: 56px;
+    }
+  }
+</style>

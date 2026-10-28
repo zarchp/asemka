@@ -1,0 +1,109 @@
+---
+import type { Dict } from '../i18n/types';
+
+interface Props {
+  dict: Dict;
+}
+
+const { dict } = Astro.props;
+---
+
+<section id="services" class="services field-ink frame" aria-labelledby="services-title">
+  <div class="grid">
+    <div class="intro" data-reveal>
+      <h2 id="services-title">{dict.services.heading}</h2>
+      <p>{dict.services.lead}</p>
+    </div>
+    <ul class="list" data-stagger>
+      {
+        dict.services.items.map((s) => (
+          <li data-reveal>
+            <svg class="tab" viewBox="0 0 22 14" aria-hidden="true">
+              <path d="M0 0h14l8 14H0z" fill="currentColor" />
+            </svg>
+            <h3>{s.name}</h3>
+            <p>{s.body}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding-block: var(--section-gap);
+  }
+
+  .grid {
+    row-gap: 48px;
+    align-items: start;
+  }
+
+  .intro {
+    grid-column: 1 / 5;
+    position: sticky;
+    top: calc(var(--nav-h) + 40px);
+  }
+
+  h2 {
+    font-size: var(--step-display);
+  }
+
+  .intro p {
+    max-width: 30ch;
+    margin-top: 24px;
+  }
+
+  .list {
+    grid-column: 6 / 13;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 56px var(--gutter);
+  }
+
+  li {
+    padding-right: 24px;
+  }
+
+  .tab {
+    width: 22px;
+    height: 14px;
+    margin-bottom: 16px;
+    color: var(--orange);
+  }
+
+  h3 {
+    font-size: var(--step-lead);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  li p {
+    max-width: 34ch;
+    margin-top: 8px;
+    color: var(--muted);
+  }
+
+  @media (max-width: 899px) {
+    .intro,
+    .list {
+      grid-column: 1 / -1;
+    }
+
+    .intro {
+      position: static;
+    }
+
+    h2 {
+      font-size: clamp(1.875rem, 9vw, 3rem);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .list {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+  }
+</style>

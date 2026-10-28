@@ -1,0 +1,262 @@
+/* Asemka · Colour chapters. One face, five size steps, five flat fields. */
+
+:root {
+  /* palette: brand orange and logo grey kept from the wordmark, WhatsApp green for the contact chapter */
+  --paper: #f4f4f2;
+  --paper-step: #e6e6e2;
+  --ink: #161616;
+  --ink-step: #232323;
+  --orange: #ff3d00;
+  --orange-strong: #e63600;
+  --ember: #d43100;
+  --ember-step: #c02c00;
+  --grey: #404040;
+  --grey-step: #4c4c4c;
+  --green: #075e54;
+  --green-step: #0a6c61;
+  --peach: #ffe9e0;
+  --peach-step: #ffd9ca;
+  --wa-bubble: #d9fdd3;
+
+  /* type: Albert Sans, five steps */
+  --font: 'Albert Sans', system-ui, sans-serif;
+  --step-small: 0.875rem;
+  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-display: clamp(2.75rem, 1rem + 4.4vw, 4.75rem);
+  --step-poster: clamp(3rem, 0.5rem + 8.4vw, 9rem);
+
+  /* frame */
+  --m: clamp(16px, 2.8vw, 40px);
+  --gutter: clamp(12px, 1.4vw, 24px);
+  --section-gap: clamp(96px, 12vw, 200px);
+  --nav-h: 72px;
+
+  /* motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+  --t-press: 140ms;
+  --t-hover: 200ms;
+  --t-ui: 240ms;
+  --t-reveal: 800ms;
+  --t-open: 1100ms;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: var(--nav-h);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: var(--step-body);
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+p,
+blockquote,
+figure,
+ol,
+ul,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus, var(--orange));
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* fields: every chapter sets its ground and its two inks */
+.field-paper { --ground: var(--paper); --fg: var(--ink); --muted: #555552; --step: var(--paper-step); --focus: var(--orange-strong); }
+.field-ink { --ground: var(--ink); --fg: var(--paper); --muted: #a3a3a0; --step: var(--ink-step); --focus: var(--orange); }
+/* bright orange carries no running text; ember is the brand orange deepened so white text reads at 4.9:1 */
+.field-orange { --ground: var(--orange); --fg: #fff; --muted: #fff; --step: var(--orange-strong); --focus: var(--ink); }
+.field-ember { --ground: var(--ember); --fg: #fff; --muted: #ffe1d6; --step: var(--ember-step); --focus: #fff; }
+.field-peach { --ground: var(--peach); --fg: var(--ink); --muted: #5c3a2e; --step: var(--peach-step); --focus: var(--orange-strong); }
+.field-grey { --ground: var(--grey); --fg: var(--paper); --muted: #cfcfcb; --step: var(--grey-step); --focus: var(--orange); }
+.field-green { --ground: var(--green); --fg: var(--paper); --muted: #cfe3df; --step: var(--green-step); --focus: var(--paper); }
+
+[class*='field-'] {
+  background: var(--ground);
+  color: var(--fg);
+}
+
+.frame {
+  padding-inline: var(--m);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+}
+
+.skip {
+  position: absolute;
+  left: var(--m);
+  top: -100px;
+  z-index: 10;
+  padding: 12px 16px;
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip:focus {
+  top: 12px;
+}
+
+/* the one button shape: square, flat, one fill */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 12px 20px;
+  border: 0;
+  background: var(--btn-bg, var(--ink));
+  color: var(--btn-fg, var(--paper));
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform var(--t-press) var(--ease-out),
+    background-color var(--t-hover) var(--ease-out);
+}
+
+.button svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  transition: transform var(--t-ui) var(--ease-out);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    background: var(--btn-hover, var(--grey));
+  }
+
+  .button:hover svg {
+    transform: translateX(3px);
+  }
+}
+
+.link {
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.22em;
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  transition: text-decoration-color var(--t-hover) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+/* entrances: parts of a section rise once as it enters; content stays visible without script */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 700ms var(--ease-out),
+      transform 900ms var(--ease-expo);
+    transition-delay: calc(var(--i, 0) * 80ms);
+  }
+
+  .js [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
